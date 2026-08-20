@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,440;0,9..144,560;0,9..144,650;0,9..144,750;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-ivory text-ink font-sans;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif text-ink;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+  }
+  :focus-visible { outline: 2.5px solid theme('colors.royal'); outline-offset: 3px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* ---------- placeholder photography ----------
+   Every remaining placeholder (product cards, thumbnails, about/testimonial
+   photos, avatars) shares one real photo for now — see README to swap in
+   distinct photos per item later. */
+.ph{
+  position:relative; overflow:hidden; border-radius:18px;
+  background-image:url('/images/heritage/gallery-placeholder.jpg');
+  background-size:cover; background-position:center;
+}
+.ph img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+/* ---------- eyebrow dot accent ---------- */
+.eyebrow{ font-family:'Space Mono', monospace; text-transform:uppercase; letter-spacing:0.14em; font-size:12px; font-weight:700; display:inline-flex; align-items:center; gap:8px; }
+.eyebrow::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--dot,#E8672B); display:inline-block; }
+
+/* ---------- category tag dot accent ---------- */
+.cat-tag::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--cat,#9C8F7C); display:inline-block; }
+
+/* ---------- homepage gallery marquee ---------- */
+.gallery-marquee-wrap{
+  -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask-image:linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+}
+.marquee-track{ animation: marqueeSlide 52s linear infinite; }
+.gallery-marquee:hover .marquee-track{ animation-play-state:paused; }
+@keyframes marqueeSlide{ from{ transform:translateX(-50%); } to{ transform:translateX(0); } }
+
+.mcard:nth-child(4n+1) .ph{ transform:rotate(-2.2deg); }
+.mcard:nth-child(4n+2) .ph{ transform:rotate(1.6deg); }
+.mcard:nth-child(4n+3) .ph{ transform:rotate(-1.2deg); }
+.mcard:nth-child(4n+4) .ph{ transform:rotate(2.4deg); }
+.mcard:hover .ph{ transform:rotate(0deg) translateY(-8px); }
+.mcard .ph{ transition:transform .3s ease, box-shadow .3s ease; }
+
+/* ---------- royal heritage section full-bleed background ---------- */
+.royal-section{
+  background:
+    radial-gradient(circle at 8% 10%, rgba(201,151,31,0.16) 0%, transparent 38%),
+    radial-gradient(circle at 92% 88%, rgba(201,151,31,0.12) 0%, transparent 42%),
+    linear-gradient(120deg, #212F6B 0%, #2C3E8C 55%, #1B2757 100%);
+}
+.royal-section::after{
+  content:""; position:absolute; left:0; right:0; top:10px; bottom:10px; pointer-events:none;
+  border-top:1px solid rgba(201,151,31,0.18); border-bottom:1px solid rgba(201,151,31,0.18);
+}
+.royal-portrait .frame-inner{
+  background:
+    radial-gradient(circle at 50% 22%, rgba(232,166,61,0.3) 0%, transparent 45%),
+    linear-gradient(180deg, #1B2757 0%, #12193b 100%);
+}
+
+.heritage-story-bg{ background:linear-gradient(155deg, #7E2A3B 0%, #5E1F2C 100%); }
+.quote-band-full{ background:linear-gradient(155deg, #2C3E8C 0%, #212F6B 100%); }
