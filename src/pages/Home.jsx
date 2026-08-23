@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Ph from '../components/Ph.jsx';
 import Eyebrow from '../components/Eyebrow.jsx';
+import { IMAGES } from '../data/images.js';
 
 const GALLERY_ITEMS = [
   { ph: 'ph-1', name: 'Royal Ganesha', cat: 'Lord Ganesh', catKey: 'ganesh' },
@@ -127,7 +128,7 @@ export default function Home() {
               <div className="royal-portrait relative">
                 <div className="frame-inner w-full h-full rounded-sm border border-white/45 relative overflow-hidden aspect-[3/4]">
                   <img
-                    src="/images/heritage/royal-legacy.jpg"
+                    src={IMAGES.heroRoyalLegacy}
                     alt="A hand-carved supari (areca nut) sculpture from the Rewa Supari Art lineage"
                     className="w-full h-full object-cover"
                   />
@@ -206,7 +207,7 @@ export default function Home() {
                 <p className="text-[15px] leading-relaxed text-ink">"{t.quote}"</p>
                 <div className="font-mono text-[11px] text-ink-faint uppercase tracking-wide">Purchased: {t.product}</div>
                 <div className="flex items-center gap-3 mt-auto">
-                  <div className={`ph ${t.avatar} w-11 h-11 rounded-full flex items-center justify-center text-white font-serif font-bold text-sm flex-shrink-0`}>{t.initials}</div>
+                  <Ph variant={t.avatar} className="w-11 h-11 rounded-full flex items-center justify-center text-white font-serif font-bold text-sm flex-shrink-0">{t.initials}</Ph>
                   <div><div className="text-sm font-semibold">{t.who}</div><div className="text-[12.5px] text-ink-faint">{t.loc}</div></div>
                 </div>
               </div>

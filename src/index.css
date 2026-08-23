@@ -25,9 +25,9 @@
 }
 
 /* ---------- placeholder photography ----------
-   Every remaining placeholder (product cards, thumbnails, about/testimonial
-   photos, avatars) shares one real photo for now — see README to swap in
-   distinct photos per item later. */
+   Each .ph tile's actual photo comes from src/data/images.js (set inline
+   via the Ph component) — edit that ONE file to swap in real photos.
+   The background-image below is only a fallback if that ever fails to load. */
 .ph{
   position:relative; overflow:hidden; border-radius:18px;
   background-image:url('/images/heritage/gallery-placeholder.jpg');

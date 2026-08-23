@@ -59,7 +59,7 @@ export default function Testimonials() {
                 <p className="text-[15px] leading-relaxed text-ink">"{t.quote}"</p>
                 <div className="font-mono text-[11px] text-ink-faint uppercase tracking-wide">Purchased: {t.product}</div>
                 <div className="flex items-center gap-3 mt-auto">
-                  <div className={`ph ${t.avatar} w-11 h-11 rounded-full flex items-center justify-center text-white font-serif font-bold text-sm flex-shrink-0`}>{t.initials}</div>
+                  <Ph variant={t.avatar} className="w-11 h-11 rounded-full flex items-center justify-center text-white font-serif font-bold text-sm flex-shrink-0">{t.initials}</Ph>
                   <div><div className="text-sm font-semibold">{t.who}</div><div className="text-[12.5px] text-ink-faint">{t.loc}</div></div>
                 </div>
               </div>

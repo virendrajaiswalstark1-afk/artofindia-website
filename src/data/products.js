@@ -8,7 +8,7 @@
 
 export const PRODUCTS = [
   {
-    id: 1, img:"D:\myside\files new 19-08- 2-30 pm\Pic\Jewellery_IM19.jpg", cat: "ganesh", catLabel: "Lord Ganesh",
+    id: 1, ph: "ph-1", cat: "ganesh", catLabel: "Lord Ganesh",
     name: "Royal Ganesha", material: "Hand-carved wood", size: "12 × 8 × 6 in",
     price: 8500, badge: "Bestseller",
     desc: "A seated Ganesha carved from a single block of seasoned rosewood.",
