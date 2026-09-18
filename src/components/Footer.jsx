@@ -23,11 +23,7 @@ export default function Footer() {
             <p className="text-[#CBBFA9] text-[14.5px] leading-relaxed mt-3.5 max-w-[30ch]">
               We search for the art India is forgetting — and help it, and the families behind it, be seen again.
             </p>
-            <div className="flex gap-3 mt-5">
-              {['IG', 'FB', 'PN', 'YT'].map(s => (
-                <a key={s} href="#" aria-label={s} className="w-9 h-9 rounded-full border border-[#EFE7D8]/25 flex items-center justify-center text-sm hover:border-gold hover:text-gold">{s}</a>
-              ))}
-            </div>
+    
           </div>
           <div>
             <h5 className="font-mono text-xs tracking-widest uppercase text-[#B8AA92] mb-4">Shop</h5>
@@ -43,18 +39,18 @@ export default function Footer() {
           <div>
             <h5 className="font-mono text-xs tracking-widest uppercase text-[#B8AA92] mb-4">Support</h5>
             <a href="#" className="block text-[#EFE7D8] text-[14.5px] mb-[11px] opacity-90 hover:opacity-100 hover:text-gold">Contact</a>
-            <a href="#" className="block text-[#EFE7D8] text-[14.5px] mb-[11px] opacity-90 hover:opacity-100 hover:text-gold">Shipping</a>
             <a href="#" className="block text-[#EFE7D8] text-[14.5px] mb-[11px] opacity-90 hover:opacity-100 hover:text-gold">Returns</a>
-            <a href="#" className="block text-[#EFE7D8] text-[14.5px] mb-[11px] opacity-90 hover:opacity-100 hover:text-gold">Privacy Policy</a>
+            
           </div>
           <div>
             <h5 className="font-mono text-xs tracking-widest uppercase text-[#B8AA92] mb-4">Stay in touch</h5>
             <p className="text-[13.5px] text-[#CBBFA9]">Stories, new collections &amp; handmade treasures.</p>
             <form onSubmit={handleSubmit} className="flex gap-2 mt-3.5">
-              <input type="email" placeholder="Your email" required className="flex-1 min-w-0 px-3.5 py-3 rounded-full border border-[#EFE7D8]/25 bg-white/[0.06] text-white text-sm placeholder:text-ink-faint" />
-              <button type="submit" className="px-5 py-3 rounded-full border-none bg-gold text-ink font-bold text-[13.5px] whitespace-nowrap">
-                {subscribed ? 'Subscribed ✓' : 'Subscribe'}
-              </button>
+              <div className="flex gap-3 mt-5">
+              {['IG', 'FB', 'PN', 'YT'].map(s => (
+                <a key={s} href="#" aria-label={s} className="w-9 h-9 rounded-full border border-[#EFE7D8]/25 flex items-center justify-center text-sm hover:border-gold hover:text-gold">{s}</a>
+              ))}
+            </div>   
             </form>
           </div>
         </div>

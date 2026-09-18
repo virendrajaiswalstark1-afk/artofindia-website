@@ -21,15 +21,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="max-w-[1240px] mx-auto px-8 sm:px-5">
-          <div className="grid grid-cols-2 gap-[18px]">
-            <Ph variant="ph-7" className="aspect-[4/5] row-span-2 shadow-md2" />
-            <Ph variant="ph-3" className="aspect-[16/10.5] shadow-sm2" />
-            <Ph variant="ph-9" className="aspect-[16/10.5] shadow-sm2" />
-          </div>
-        </div>
-      </section>
+      
 
       <section className="py-[88px]">
         <div className="max-w-[1240px] mx-auto px-8 sm:px-5 grid md:grid-cols-2 gap-9 md:gap-16 items-center">

@@ -16,25 +16,26 @@ const GALLERY_ITEMS = [
   { ph: 'ph-8', name: 'Nataraja', cat: 'Others', catKey: 'others' },
 ];
 
+
 const PROCESS_STEPS = [
   {
-    eyebrow: 'gold', num: '01 — Selection & Preparation', title: 'From Supari to a Canvas', ph: 'ph-1', reverse: false,
+    eyebrow: 'gold', num: '01 — Selection & Preparation', title: 'From Supari to a Canvas', ph: 'ph-29', reverse: false,
     body: "Every piece begins with choosing the right supari. The nut is carefully selected, prepared, and cleaned before the real work begins. Its small, hard surface becomes the artist's canvas. There is no room for careless cuts — the maker works slowly, understanding the natural shape of the supari and imagining what it can become. What looks like an ordinary nut at first is gradually prepared for a transformation that depends almost entirely on patience and a steady hand.",
   },
   {
-    eyebrow: 'orange', num: '02 — Carving & Shaping', title: 'Carving a World by Hand', ph: 'ph-6', reverse: true,
+    eyebrow: 'orange', num: '02 — Carving & Shaping', title: 'Carving a World by Hand', ph: 'ph-28', reverse: true,
     body: 'Once the surface is ready, the artisan begins carving. Using delicate hand tools, tiny cuts are made one after another to create the basic form of the design. Traditional motifs, objects, animals, and architectural forms can emerge from a surface only a few centimetres wide. The craft demands extraordinary control: a cut that is too deep can destroy the entire piece. Every movement is deliberate, turning a simple supari into a miniature work of art.',
   },
   {
-    eyebrow: 'terracotta', num: '03 — Detailing & Finishing', title: 'Where the Smallest Details Matter', ph: 'ph-9', reverse: false,
+    eyebrow: 'terracotta', num: '03 — Detailing & Finishing', title: 'Where the Smallest Details Matter', ph: 'ph-23', reverse: false,
     body: 'The final stage is where the character of the artwork truly appears. The artisan carefully refines the carved shapes, removes unwanted material, and works on the smallest details until the design becomes clear. Finishing requires the same patience as carving, because even the tiniest imperfection can change the appearance of the piece. When the work is finally complete, the humble supari has become something far more valuable — a record of skill, patience, and a craft carried forward through generations.',
   },
 ];
 
 const TESTIMONIALS_GLIMPSE = [
-  { quote: 'The craftsmanship is unbelievable. You can actually see the human touch in it.', product: 'Royal Ganesha', avatar: 'ph-4', initials: 'AS', who: 'Ananya Sharma', loc: 'Delhi, India' },
-  { quote: "The Nataraja bronze arrived more beautiful than the photos. It's the centerpiece of our living room.", product: 'Nataraja', avatar: 'ph-7', initials: 'SM', who: 'Sara Mitchell', loc: 'London, UK' },
-  { quote: "Reading the artisan's story before it arrived made it feel like a gift from a person, not a website.", product: 'Divine Blessing', avatar: 'ph-2', initials: 'PN', who: 'Priya Nambiar', loc: 'Bengaluru, India' },
+  { quote: 'The craftsmanship is unbelievable. You can actually see the human touch in it.', product: 'Royal Ganesha', avatar: 'ph-4', initials: 'AS', who: 'Ananya Sharma', loc: 'Delhi, India',rating:5 },
+  { quote: "The Lord Ganesh arrived more beautiful than the photos. It's the centerpiece of our living room.", product: 'Lord Ganesh', avatar: 'ph-7', initials: 'SM', who: 'Shardul singh', loc: 'Delhi',rating:5},
+  { quote: "Reading the artisan's story before it arrived made it feel like a gift from a person, not a website.", product: 'Divine Blessing', avatar: 'ph-2', initials: 'PN', who: 'Priya Nambiar', loc: 'Bengaluru, India',rating:4 },
 ];
 
 function GalleryCard({ item, hidden = false }) {
@@ -106,7 +107,7 @@ export default function Home() {
       {/* NO TWO PIECES */}
       <section className="py-[88px]">
         <div className="max-w-[1240px] mx-auto px-8 sm:px-5 grid md:grid-cols-2 gap-9 md:gap-16 items-center">
-          <div><Ph variant="ph-5" className="aspect-[4/3.2] shadow-md2" /></div>
+          <div><Ph variant="ph-1" className="aspect-[4/3.2] shadow-md2" /></div>
           <div>
             <Eyebrow color="terracotta">Every piece has a story</Eyebrow>
             <h2 className="mt-3 text-[28px] sm:text-[36px] lg:text-[44px] leading-tight">No two pieces are ever quite the same.</h2>
@@ -203,7 +204,16 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             {TESTIMONIALS_GLIMPSE.map((t, i) => (
               <div key={i} className="bg-paper rounded-[18px] p-[26px] shadow-sm2 flex flex-col gap-3.5">
-                <div className="text-gold text-sm tracking-[2px]">★★★★★</div>
+                
+                <div className="text-sm tracking-[2px]">
+                 {[1, 2, 3, 4, 5].map((star) => ( <span key={star}
+                  className={star <= t.rating ? 'text-gold' : 'text-ink/[0.18]'}>★</span> ))}
+                </div>
+
+
+
+
+
                 <p className="text-[15px] leading-relaxed text-ink">"{t.quote}"</p>
                 <div className="font-mono text-[11px] text-ink-faint uppercase tracking-wide">Purchased: {t.product}</div>
                 <div className="flex items-center gap-3 mt-auto">

@@ -3,14 +3,12 @@ import Ph from '../components/Ph.jsx';
 import Eyebrow from '../components/Eyebrow.jsx';
 
 const TESTIMONIALS = [
-  { quote: "I've bought a lot of decor over the years — nothing compares to owning something an actual person carved by hand.", product: 'Heritage Elephant', avatar: 'ph-2', initials: 'RK', who: 'Rohan Kapoor', loc: 'Mumbai, India' },
-  { quote: "The Nataraja bronze arrived more beautiful than the photos. It's now the centerpiece of our living room.", product: 'Nataraja', avatar: 'ph-7', initials: 'SM', who: 'Sara Mitchell', loc: 'London, UK' },
-  { quote: "Reading the artisan's story before it arrived made it feel like a gift from a person, not a purchase from a website.", product: 'Divine Blessing', avatar: 'ph-4', initials: 'PN', who: 'Priya Nambiar', loc: 'Bengaluru, India' },
-  { quote: "We gifted the Blessing Diya Set at my sister's wedding — every guest asked where it was from.", product: 'Blessing Diya Set', avatar: 'ph-9', initials: 'VJ', who: 'Vikram Joshi', loc: 'Pune, India' },
-  { quote: 'The certificate of authenticity and the artisan\'s photo made this feel like buying from a gallery, not a warehouse.', product: 'Temple Guardian', avatar: 'ph-1', initials: 'EC', who: 'Emily Carter', loc: 'Toronto, Canada' },
-  { quote: "Fast shipping, careful packaging, and a piece that feels like it belongs in a museum, not my hallway — though it's perfect there too.", product: 'Village at Dusk', avatar: 'ph-3', initials: 'AD', who: 'Arjun Desai', loc: 'Ahmedabad, India' },
-  { quote: "I've ordered three pieces now, each from a different artisan. Every one arrived with its own personality.", product: 'Carved Wall Panel', avatar: 'ph-6', initials: 'NT', who: 'Naomi Tan', loc: 'Singapore' },
-  { quote: 'My grandmother had a piece just like this growing up. Finding Artify felt like reconnecting with that memory.', product: 'Ancestral Mask', avatar: 'ph-8', initials: 'KI', who: 'Kavya Iyer', loc: 'Chennai, India' },
+  { quote: "I've bought a lot of decor over the years — nothing compares to owning something an actual person carved by hand.", product: 'Lord Ganesh', avatar: 'ph-2', initials: 'RK', who: 'Rohan Kapoor', loc: 'Mumbai, India',rating: 5 },
+  { quote: "The Lord Gnesh arrived more beautiful than the photos. It's now the centerpiece of our living room.", product: 'Lord Ganesh', avatar: 'ph-7', initials: 'SM', who: 'Shardul singh', loc: 'Delhi',rating:5 },
+  { quote: "Reading the artisan's story before it arrived made it feel like a gift from a person, not a purchase from a website.", product: 'Lord Krishna', avatar: 'ph-4', initials: 'PN', who: 'Priya Nambiar', loc: 'Bengaluru, India',rating:4 },
+  { quote: "We gifted the Blessing Diya Set at my sister's wedding — every guest asked where it was from.", product: 'Blessing Diya Set', avatar: 'ph-9', initials: 'VJ', who: 'Vikram Joshi', loc: 'Pune, India',rating:4 },
+  { quote: "Fast shipping, careful packaging, and a piece that feels like it belongs in a museum, not my hallway — though it's perfect there too.", product: 'Village at Dusk', avatar: 'ph-3', initials: 'AD', who: 'Arjun Desai', loc: 'Ahmedabad, India',rating:5 },
+  { quote: 'My grandmother had a piece just like this growing up. Finding Artify felt like reconnecting with that memory.', product: 'Ancestral Mask', avatar: 'ph-8', initials: 'KI', who: 'Kavya Iyer', loc: 'Chennai, India',rating:4 },
 ];
 
 export default function Testimonials() {
@@ -55,7 +53,14 @@ export default function Testimonials() {
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             {TESTIMONIALS.map((t, i) => (
               <div key={i} className="bg-paper rounded-[18px] p-[26px] shadow-sm2 flex flex-col gap-3.5">
-                <div className="text-gold text-sm tracking-[2px]">★★★★★</div>
+                <div className="text-sm tracking-[2px]">
+                   {[1, 2, 3, 4, 5].map((star) => (
+                     <span
+                    key={star}
+                  className={star <= t.rating ? 'text-gold' : 'text-ink/[0.18]'}>★
+                         </span>
+                     ))}
+                  </div>
                 <p className="text-[15px] leading-relaxed text-ink">"{t.quote}"</p>
                 <div className="font-mono text-[11px] text-ink-faint uppercase tracking-wide">Purchased: {t.product}</div>
                 <div className="flex items-center gap-3 mt-auto">
