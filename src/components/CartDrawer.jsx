@@ -27,7 +27,7 @@ export default function CartDrawer() {
             if (!p) return null;
             return (
               <div key={p.id} className="grid grid-cols-[56px_1fr_auto] gap-3 items-center">
-                <Ph variant={p.ph} className="w-14 h-14 rounded-[10px]" />
+                <Ph src={p.image} className="w-14 h-14 rounded-[10px]" />
                 <div>
                   <div className="text-sm font-semibold">{p.name}</div>
                   <div className="text-[12.5px] text-ink-faint">{money(p.price)} × {i.qty}</div>

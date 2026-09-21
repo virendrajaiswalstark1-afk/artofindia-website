@@ -23,14 +23,14 @@ export default function Product() {
   const isSupari = p.heritage === true;
 
   // Get all images for this product.
-  // If no images array exists, use the old ph image.
+  // If no images array exists, use the main product image.
   const productImages =
     Array.isArray(p.images) && p.images.length > 0
       ? p.images
-      : [p.ph];
+      : [p.image];
 
   useEffect(() => {
-    document.title = p.name + ' — Artify';
+    document.title = p.name + ' — Art of india';
     setQty(1);
     setSelectedImage(0);
   }, [p.id, p.name]);
@@ -69,7 +69,7 @@ export default function Product() {
 
               {/* MAIN IMAGE */}
               <Ph
-                variant={productImages[selectedImage]}
+                src={productImages[selectedImage]}
                 className="aspect-square shadow-md2"
               />
 
@@ -97,7 +97,7 @@ export default function Product() {
                     `}
                   >
                     <Ph
-                      variant={image}
+                      src={image}
                       className="w-[74px] h-[74px] rounded-[10px]"
                     />
                   </button>

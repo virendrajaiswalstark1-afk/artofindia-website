@@ -1,4 +1,4 @@
-# Artify — React + Tailwind
+# Art of india — React + Tailwind
 
 A React (Vite) single-page app styled with Tailwind CSS. Same site, same
 product data, same copy as the original static HTML version — now

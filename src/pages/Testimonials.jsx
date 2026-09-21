@@ -3,12 +3,12 @@ import Ph from '../components/Ph.jsx';
 import Eyebrow from '../components/Eyebrow.jsx';
 
 const TESTIMONIALS = [
-  { quote: "I've bought a lot of decor over the years — nothing compares to owning something an actual person carved by hand.", product: 'Lord Ganesh', avatar: 'ph-2', initials: 'RK', who: 'Rohan Kapoor', loc: 'Mumbai, India',rating: 5 },
-  { quote: "The Lord Gnesh arrived more beautiful than the photos. It's now the centerpiece of our living room.", product: 'Lord Ganesh', avatar: 'ph-7', initials: 'SM', who: 'Shardul singh', loc: 'Delhi',rating:5 },
-  { quote: "Reading the artisan's story before it arrived made it feel like a gift from a person, not a purchase from a website.", product: 'Lord Krishna', avatar: 'ph-4', initials: 'PN', who: 'Priya Nambiar', loc: 'Bengaluru, India',rating:4 },
-  { quote: "We gifted the Blessing Diya Set at my sister's wedding — every guest asked where it was from.", product: 'Blessing Diya Set', avatar: 'ph-9', initials: 'VJ', who: 'Vikram Joshi', loc: 'Pune, India',rating:4 },
-  { quote: "Fast shipping, careful packaging, and a piece that feels like it belongs in a museum, not my hallway — though it's perfect there too.", product: 'Village at Dusk', avatar: 'ph-3', initials: 'AD', who: 'Arjun Desai', loc: 'Ahmedabad, India',rating:5 },
-  { quote: 'My grandmother had a piece just like this growing up. Finding Artify felt like reconnecting with that memory.', product: 'Ancestral Mask', avatar: 'ph-8', initials: 'KI', who: 'Kavya Iyer', loc: 'Chennai, India',rating:4 },
+  { quote: "I've bought a lot of decor over the years — nothing compares to owning something an actual person carved by hand.", product: 'Lord Ganesh', avatar: '/images/products/lord_Ganesh/lord-ganesh-09-2500-10-inch.jpg', initials: 'RK', who: 'Rohan Kapoor', loc: 'Mumbai, India',rating: 5 },
+  { quote: "The Lord Gnesh arrived more beautiful than the photos. It's now the centerpiece of our living room.", product: 'Lord Ganesh', avatar: '/images/products/lord_Ganesh/lord-ganesh-im06-2000-inc-7.jpg', initials: 'SM', who: 'Shardul singh', loc: 'Delhi',rating:5 },
+  { quote: "Reading the artisan's story before it arrived made it feel like a gift from a person, not a purchase from a website.", product: 'Lord Krishna', avatar: '/images/products/lord_Ganesh/lord-ganesh-im01-1600-inc-9-inc.jpg', initials: 'PN', who: 'Priya Nambiar', loc: 'Bengaluru, India',rating:4 },
+  { quote: "We gifted the Blessing Diya Set at my sister's wedding — every guest asked where it was from.", product: 'Blessing Diya Set', avatar: '/images/products/lord_Ganesh/lord-ganesh-im11-2500-10inch.jpg', initials: 'VJ', who: 'Vikram Joshi', loc: 'Pune, India',rating:4 },
+  { quote: "Fast shipping, careful packaging, and a piece that feels like it belongs in a museum, not my hallway — though it's perfect there too.", product: 'Village at Dusk', avatar: '/images/products/lord_Ganesh/lord-ganesh-im-08-2000-inc-9-inc.jpg', initials: 'AD', who: 'Arjun Desai', loc: 'Ahmedabad, India',rating:5 },
+  { quote: 'My grandmother had a piece just like this growing up. Finding Art of india felt like reconnecting with that memory.', product: 'Ancestral Mask', avatar: '/images/products/lord_Ganesh/lord-ganesh-im10-2500-10inc.jpg', initials: 'KI', who: 'Kavya Iyer', loc: 'Chennai, India',rating:4 },
 ];
 
 export default function Testimonials() {
@@ -39,7 +39,7 @@ export default function Testimonials() {
       <section className="py-[88px]">
         <div className="max-w-[1240px] mx-auto px-8 sm:px-5">
           <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-8 md:gap-14 items-center bg-ivory-deep rounded-[28px] p-8 sm:p-14 mb-16">
-            <Ph variant="ph-4" className="aspect-[4/4.6] shadow-md2" />
+            <Ph src="/images/products/lord_Ganesh/lord-ganesh-im01-1600-inc-9-inc.jpg" className="aspect-[4/4.6] shadow-md2" />
             <div>
               <div className="text-gold text-sm tracking-[2px]">★★★★★</div>
               <p className="font-serif italic text-xl sm:text-2xl lg:text-3xl leading-relaxed mt-3">
@@ -64,7 +64,7 @@ export default function Testimonials() {
                 <p className="text-[15px] leading-relaxed text-ink">"{t.quote}"</p>
                 <div className="font-mono text-[11px] text-ink-faint uppercase tracking-wide">Purchased: {t.product}</div>
                 <div className="flex items-center gap-3 mt-auto">
-                  <Ph variant={t.avatar} className="w-11 h-11 rounded-full flex items-center justify-center text-white font-serif font-bold text-sm flex-shrink-0">{t.initials}</Ph>
+                  <Ph src={t.avatar} className="w-11 h-11 rounded-full flex items-center justify-center text-white font-serif font-bold text-sm flex-shrink-0">{t.initials}</Ph>
                   <div><div className="text-sm font-semibold">{t.who}</div><div className="text-[12.5px] text-ink-faint">{t.loc}</div></div>
                 </div>
               </div>

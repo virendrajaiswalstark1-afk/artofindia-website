@@ -25,12 +25,12 @@ export default function About() {
 
       <section className="py-[88px]">
         <div className="max-w-[1240px] mx-auto px-8 sm:px-5 grid md:grid-cols-2 gap-9 md:gap-16 items-center">
-          <div><Ph variant="ph-8" className="aspect-[4/3.2] shadow-md2" /></div>
+          <div><Ph src="/images/products/lord_Ganesh/lord-ganesh-im10-2500-10inc.jpg" className="aspect-[4/3.2] shadow-md2" /></div>
           <div>
             <Eyebrow color="orange">Why we exist</Eyebrow>
             <h2 className="mt-3 text-[26px] sm:text-[34px] lg:text-[42px] leading-tight">Some art doesn't disappear because it stops being beautiful. It disappears because no one is looking.</h2>
             <p className="text-ink-soft text-base leading-[1.7] mt-4">
-              A craft like Rewa's supari carving can survive four generations in a royal court and still come within a family's reach of dying out, simply because too few people beyond one town ever heard of it. That's the gap Artify tries to close — not by inventing new craft, but by finding the art that's already there: rooted, real, and often overlooked.
+              A craft like Rewa's supari carving can survive four generations in a royal court and still come within a family's reach of dying out, simply because too few people beyond one town ever heard of it. That's the gap Art of india tries to close — not by inventing new craft, but by finding the art that's already there: rooted, real, and often overlooked.
             </p>
           </div>
         </div>
@@ -38,12 +38,12 @@ export default function About() {
 
       <section className="py-[88px]">
         <div className="max-w-[1240px] mx-auto px-8 sm:px-5 grid md:grid-cols-2 gap-9 md:gap-16 items-center md:[&>*:first-child]:order-2">
-          <div><Ph variant="ph-6" className="aspect-[4/3.2] shadow-md2" /></div>
+          <div><Ph src="/images/products/lord_Ganesh/lord-ganesh-im03-1800-in-9.jpg" className="aspect-[4/3.2] shadow-md2" /></div>
           <div>
             <Eyebrow color="gold">What we actually do</Eyebrow>
             <h2 className="mt-3 text-[26px] sm:text-[34px] lg:text-[42px] leading-tight">We help the art grow — and the family behind it.</h2>
             <p className="text-ink-soft text-base leading-[1.7] mt-4">
-              Every piece we bring onto Artify comes from a real workshop, usually a family one. We don't mass-produce it, redesign it, or simplify it for speed. We introduce it as it is — the same tools, the same techniques, the same hands — to people who wouldn't otherwise have found it. When a piece sells, that income goes back to the artisan's family, which is often what keeps a fading craft alive one more generation.
+              Every piece we bring onto Art of india comes from a real workshop, usually a family one. We don't mass-produce it, redesign it, or simplify it for speed. We introduce it as it is — the same tools, the same techniques, the same hands — to people who wouldn't otherwise have found it. When a piece sells, that income goes back to the artisan's family, which is often what keeps a fading craft alive one more generation.
             </p>
           </div>
         </div>

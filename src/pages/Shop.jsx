@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { PRODUCTS } from '../data/products.js';
-import { IMAGES } from '../data/images.js';
 import Eyebrow from '../components/Eyebrow.jsx';
 import ProductCard from '../components/ProductCard.jsx';
 
@@ -60,7 +59,7 @@ export default function Shop() {
           <div id="rewa-story" className="heritage-story-bg grid md:grid-cols-[0.85fr_1.15fr] gap-8 md:gap-14 items-center text-[#F3E2E6] rounded-[28px] p-8 sm:p-14">
             <div className="aspect-[4/4.6] rounded-[18px] overflow-hidden shadow-lg2">
               <img
-                src={IMAGES.rewaHeritage}
+                src="/images/heritage/rewa-heritage.jpg"
                 alt="Hand-carved supari (areca nut) sculptures from the Kunder family's Rewa workshop"
                 className="w-full h-full object-cover"
               />

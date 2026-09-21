@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <div className="font-serif font-bold text-[22px] flex items-center gap-2.5 text-white">
               <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-orange to-gold" />
-              Artify
+              Art of india
             </div>
             <p className="text-[#CBBFA9] text-[14.5px] leading-relaxed mt-3.5 max-w-[30ch]">
               We search for the art India is forgetting — and help it, and the families behind it, be seen again.
@@ -55,7 +55,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2.5 pt-[26px] text-[12.5px] text-ink-faint font-mono">
-          <span>© 2026 Artify. All rights reserved.</span>
+          <span>© 2026 Art of india. All rights reserved.</span>
           <span>Handmade heritage, delivered worldwide</span>
         </div>
       </div>

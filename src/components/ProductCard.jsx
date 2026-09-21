@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { money } from '../data/products.js';
 import { useCart } from '../context/CartContext.jsx';
@@ -9,11 +9,23 @@ export default function ProductCard({ product, showActions = true }) {
   const [wished, setWished] = useState(false);
   const { add } = useCart();
   const p = product;
+    // Show "more" only when the description is actually cut off (clamped to 3 lines).
+  const descRef = useRef(null);
+  const [isCut, setIsCut] = useState(false);
+  useEffect(() => {
+    const check = () => {
+      const el = descRef.current;
+      if (el) setIsCut(el.scrollHeight > el.clientHeight + 1);
+    };
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, [p.desc]);
 
   return (
     <div className="bg-paper rounded-[18px] overflow-hidden shadow-sm2 hover:shadow-md2 hover:-translate-y-1 transition-all duration-200 flex flex-col">
       <div className="relative aspect-square">
-        <Ph variant={p.ph} className="!rounded-none w-full h-full" />
+        <Ph src={p.image} className="!rounded-none w-full h-full" />
         {p.badge && (
           <span className="absolute top-3 left-3 bg-ink text-ivory font-mono text-[10px] font-bold uppercase tracking-wide px-2.5 py-[5px] rounded-full">
             {p.badge}
@@ -29,8 +41,11 @@ export default function ProductCard({ product, showActions = true }) {
       </div>
       <div className="p-[18px] pb-5 flex flex-col gap-2 flex-1">
         <CategoryTag cat={p.cat} label={p.catLabel} />
-        <h3 className="text-[17px]">{p.name}</h3>
-        <p className="text-[13.5px] text-ink-soft leading-relaxed">{p.desc}</p>
+        <h3 className="text-[17px] line-clamp-1" title={p.name}>{p.name}</h3>
+        <p ref={descRef} className="text-[13.5px] text-ink-soft leading-relaxed line-clamp-4 min-h-[6.5em]">{p.desc}</p>
+          <Link to={`/product/${p.id}`} className={`text-[13px] font-semibold text-orange hover:underline -mt-1 ${isCut ? '' : 'invisible'}`} aria-hidden={!isCut} tabIndex={isCut ? 0 : -1}>
+            more...
+            </Link>
         <div className="flex justify-between items-center mt-auto pt-2.5">
           <span className="font-mono font-bold text-base">{money(p.price)}</span>
         </div>

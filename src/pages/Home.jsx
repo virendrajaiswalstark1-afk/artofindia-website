@@ -1,41 +1,43 @@
 import { Link } from 'react-router-dom';
 import Ph from '../components/Ph.jsx';
 import Eyebrow from '../components/Eyebrow.jsx';
-import { IMAGES } from '../data/images.js';
 
 const GALLERY_ITEMS = [
-  { ph: 'ph-1', name: 'Royal Ganesha', cat: 'Lord Ganesh', catKey: 'ganesh' },
-  { ph: 'ph-9', name: 'Bal Gopal Krishna', cat: 'Lord Krishna', catKey: 'krishna' },
-  { ph: 'ph-3', name: 'Village at Dusk', cat: 'Decorative', catKey: 'decorative' },
-  { ph: 'ph-6', name: 'Temple Jhumka Earrings', cat: 'Jewelry', catKey: 'jewelry' },
-  { ph: 'ph-7', name: 'Temple Guardian', cat: 'Others', catKey: 'others' },
-  { ph: 'ph-4', name: 'Divine Blessing Relief', cat: 'Lord Ganesh', catKey: 'ganesh' },
-  { ph: 'ph-4', name: 'Radha Krishna Panel', cat: 'Lord Krishna', catKey: 'krishna' },
-  { ph: 'ph-10', name: 'Terracotta Wall Mural', cat: 'Decorative', catKey: 'decorative' },
-  { ph: 'ph-3', name: 'Kundan Choker Set', cat: 'Jewelry', catKey: 'jewelry' },
-  { ph: 'ph-8', name: 'Nataraja', cat: 'Others', catKey: 'others' },
+  { image: '/images/products/lord_Ganesh/lord-ganesh-00-3800-12-inc.jpg', name: 'Divine Blessing Relief', cat: 'Lord Ganesh', catKey: 'ganesh' },
+  { image: '/images/products/Krishna/radhakrishna_id-14.jpg',    name: 'Bal Gopal Krishna', cat: 'Lord Krishna', catKey: 'krishna' },
+  { image: "/images/products/lord_Ganesh/lord-ganesh_id-2.jpg",  name: 'Trimukhi Lord Ganesha', cat: 'Lord Ganesh', catKey: 'ganesh' },
+  { image: 'images/products/others/turtal_id-20.1.jpg',        name: 'Turtal', cat: 'Decorative', catKey: 'decorative' },
+  { image: '/images/products/lord_Ganesh/lord-ganesh_id-12.jpg', name: 'Lord Ganesh', cat: 'Others', cat: 'Lord Ganesh', catKey: 'ganesh' },
+  { image: '/images/products/lord_Ganesh/lord-ganesh_id-3.jpg',   name: 'Royal Ganesha', cat: 'Lord Ganesh', catKey: 'ganesh' },
+  { image: '/images/products/lord_Ganesh/lord-ganesh_id-5.1.jpg', name: 'Lord Ganesh & Goddess Laxmi', cat: 'Lord Ganesh', catKey: 'ganesh' },
+  { image: '/images/products/others/Keychain_id-21.1.jpg',        name: 'Key Chian', cat: 'Decorative', catKey: 'decorative' },
+  { image: '/images/products/Krishna/radha-krishan_17.jpg',       name: 'Radha Krishna', cat: 'Lord Krishna', catKey: 'krishna' },
+  { image: '/images/products/lord_Ganesh/lord-ganesh_id-13.jpg',  name: 'Lord Ganesh', cat: 'Decorative', catKey: 'decorative' },
+  { image: '/images/products/lord_Ganesh/lord-ganesh_id-7.jpg',   name: 'Lord Ganesh', cat: 'Lord Ganesh', catKey: 'ganesh' },
+  
+  
 ];
 
 
 const PROCESS_STEPS = [
   {
-    eyebrow: 'gold', num: '01 — Selection & Preparation', title: 'From Supari to a Canvas', ph: 'ph-29', reverse: false,
+    eyebrow: 'gold', num: '01 — Selection & Preparation', title: 'From Supari to a Canvas', image: '/images/products/jewellery/jewellery_id-18.jpg', reverse: false,
     body: "Every piece begins with choosing the right supari. The nut is carefully selected, prepared, and cleaned before the real work begins. Its small, hard surface becomes the artist's canvas. There is no room for careless cuts — the maker works slowly, understanding the natural shape of the supari and imagining what it can become. What looks like an ordinary nut at first is gradually prepared for a transformation that depends almost entirely on patience and a steady hand.",
   },
   {
-    eyebrow: 'orange', num: '02 — Carving & Shaping', title: 'Carving a World by Hand', ph: 'ph-28', reverse: true,
+    eyebrow: 'orange', num: '02 — Carving & Shaping', title: 'Carving a World by Hand', image: '/images/products/jewellery/jewellery_id-18.1.jpg', reverse: true,
     body: 'Once the surface is ready, the artisan begins carving. Using delicate hand tools, tiny cuts are made one after another to create the basic form of the design. Traditional motifs, objects, animals, and architectural forms can emerge from a surface only a few centimetres wide. The craft demands extraordinary control: a cut that is too deep can destroy the entire piece. Every movement is deliberate, turning a simple supari into a miniature work of art.',
   },
   {
-    eyebrow: 'terracotta', num: '03 — Detailing & Finishing', title: 'Where the Smallest Details Matter', ph: 'ph-23', reverse: false,
+    eyebrow: 'terracotta', num: '03 — Detailing & Finishing', title: 'Where the Smallest Details Matter', image: '/images/heritage/Making.jpg', reverse: false,
     body: 'The final stage is where the character of the artwork truly appears. The artisan carefully refines the carved shapes, removes unwanted material, and works on the smallest details until the design becomes clear. Finishing requires the same patience as carving, because even the tiniest imperfection can change the appearance of the piece. When the work is finally complete, the humble supari has become something far more valuable — a record of skill, patience, and a craft carried forward through generations.',
   },
 ];
 
 const TESTIMONIALS_GLIMPSE = [
-  { quote: 'The craftsmanship is unbelievable. You can actually see the human touch in it.', product: 'Royal Ganesha', avatar: 'ph-4', initials: 'AS', who: 'Ananya Sharma', loc: 'Delhi, India',rating:5 },
-  { quote: "The Lord Ganesh arrived more beautiful than the photos. It's the centerpiece of our living room.", product: 'Lord Ganesh', avatar: 'ph-7', initials: 'SM', who: 'Shardul singh', loc: 'Delhi',rating:5},
-  { quote: "Reading the artisan's story before it arrived made it feel like a gift from a person, not a website.", product: 'Divine Blessing', avatar: 'ph-2', initials: 'PN', who: 'Priya Nambiar', loc: 'Bengaluru, India',rating:4 },
+  { quote: 'The craftsmanship is unbelievable. You can actually see the human touch in it.', product: 'Royal Ganesha', avatar: '/images/products/lord_Ganesh/lord-ganesh-im01-1600-inc-9-inc.jpg', initials: 'AS', who: 'Ananya Sharma', loc: 'Delhi, India',rating:5 },
+  { quote: "The Lord Ganesh arrived more beautiful than the photos. It's the centerpiece of our living room.", product: 'Lord Ganesh', avatar: '/images/products/lord_Ganesh/lord-ganesh-im06-2000-inc-7.jpg', initials: 'SM', who: 'Shardul singh', loc: 'Delhi',rating:5},
+  { quote: "Reading the artisan's story before it arrived made it feel like a gift from a person, not a website.", product: 'Divine Blessing', avatar: '/images/products/lord_Ganesh/lord-ganesh-09-2500-10-inch.jpg', initials: 'PN', who: 'Priya Nambiar', loc: 'Bengaluru, India',rating:4 },
 ];
 
 function GalleryCard({ item, hidden = false }) {
@@ -46,7 +48,7 @@ function GalleryCard({ item, hidden = false }) {
       aria-hidden={hidden || undefined}
       tabIndex={hidden ? -1 : undefined}
     >
-      <Ph variant={item.ph} className="aspect-[4/5] rounded-2xl shadow-sm2" />
+      <Ph src={item.image} className="aspect-[4/5] rounded-2xl shadow-sm2" />
       <div className="mt-4 flex flex-col gap-0.5">
         <span className="font-serif font-semibold text-[15px] text-ink">{item.name}</span>
         <span className="font-mono text-[10.5px] uppercase tracking-wide text-ink-faint">{item.cat}</span>
@@ -62,17 +64,31 @@ export default function Home() {
       <section className="pt-16 pb-10 bg-gradient-to-b from-ivory-deep to-ivory">
         <div className="max-w-[1240px] mx-auto px-8 sm:px-5 text-center max-w-[760px]">
           <Eyebrow color="orange">A platform for art India almost forgot</Eyebrow>
-          <h1 className="mt-4 text-[42px] sm:text-[56px] lg:text-[72px] leading-[1.03]">
-            History, <span className="text-orange italic font-medium">Crafted by Hand</span>.
+          
+         
+
+          <h1 className="mt-4 text-[42px] sm:text-[56px] lg:text-[72px] leading-[1.03] text-[#FF9933]">
+            History,{' '}
+            <span
+              className="italic font-medium text-white"
+              style={{ textShadow: '0 0 6px rgba(36,26,16,0.45), 0 0 16px rgba(255,255,255,0.95), 0 0 34px rgba(255,255,255,0.8)' }}
+            >
+              Crafted by
+            </span>{' '}
+            <span className="italic font-medium text-[#138808]">Hand</span>.
           </h1>
+      
+
           <p className="text-lg sm:text-xl text-ink-soft max-w-[52ch] mx-auto mt-[22px] leading-relaxed">
             We search out handmade art that's fading from memory, or so deeply rooted it rarely leaves its own village — and help it, and the families behind it, be seen again.
           </p>
           <p className="text-lg sm:text-xl text-orange font-semibold mt-2.5 max-w-[52ch] mx-auto leading-relaxed">
             Every piece carries the hands, stories, and traditions of generations.
           </p>
+          
           <div className="flex gap-3.5 justify-center flex-wrap mt-8">
-            <Link to="/shop" className="inline-flex items-center gap-2 font-semibold text-[14.5px] py-3.5 px-6 rounded-full bg-orange text-white shadow-[0_10px_22px_rgba(232,103,43,0.32)] hover:-translate-y-0.5 transition-transform">
+            <Link to="/shop" className="inline-flex items-center gap-2 font-semibold text-[14.5px] py-3.5 px-6 rounded-full 
+            bg-gradient-to-r from-[#FF9933] to-[#138808] text-white shadow-[0_10px_22px_rgba(232,103,43,0.32)] hover:-translate-y-0.5 transition-transform">
               Explore Our Art
             </Link>
           </div>
@@ -107,7 +123,7 @@ export default function Home() {
       {/* NO TWO PIECES */}
       <section className="py-[88px]">
         <div className="max-w-[1240px] mx-auto px-8 sm:px-5 grid md:grid-cols-2 gap-9 md:gap-16 items-center">
-          <div><Ph variant="ph-1" className="aspect-[4/3.2] shadow-md2" /></div>
+          <div><Ph src="/images/products/lord_Ganesh/lord-ganesh-00-3800-12-inc.jpg" className="aspect-[4/3.2] shadow-md2" /></div>
           <div>
             <Eyebrow color="terracotta">Every piece has a story</Eyebrow>
             <h2 className="mt-3 text-[28px] sm:text-[36px] lg:text-[44px] leading-tight">No two pieces are ever quite the same.</h2>
@@ -129,7 +145,7 @@ export default function Home() {
               <div className="royal-portrait relative">
                 <div className="frame-inner w-full h-full rounded-sm border border-white/45 relative overflow-hidden aspect-[3/4]">
                   <img
-                    src={IMAGES.heroRoyalLegacy}
+                    src="/images/heritage/royal-legacy.jpg"
                     alt="A hand-carved supari (areca nut) sculpture from the Rewa Supari Art lineage"
                     className="w-full h-full object-cover"
                   />
@@ -181,7 +197,7 @@ export default function Home() {
           <div className="mt-14 flex flex-col gap-11 sm:gap-16">
             {PROCESS_STEPS.map((step, i) => (
               <div key={i} className={`grid md:grid-cols-2 gap-9 md:gap-16 items-center ${step.reverse ? 'md:[&>*:first-child]:order-2' : ''}`}>
-                <div><Ph variant={step.ph} className="aspect-[4/3.4] shadow-md2" /></div>
+                <div><Ph src={step.image} className="aspect-[4/3.4] shadow-md2" /></div>
                 <div>
                   <Eyebrow color={step.eyebrow}>{step.num}</Eyebrow>
                   <h3 className="mt-2 text-[22px] sm:text-[26px] lg:text-[30px]">{step.title}</h3>
@@ -217,7 +233,7 @@ export default function Home() {
                 <p className="text-[15px] leading-relaxed text-ink">"{t.quote}"</p>
                 <div className="font-mono text-[11px] text-ink-faint uppercase tracking-wide">Purchased: {t.product}</div>
                 <div className="flex items-center gap-3 mt-auto">
-                  <Ph variant={t.avatar} className="w-11 h-11 rounded-full flex items-center justify-center text-white font-serif font-bold text-sm flex-shrink-0">{t.initials}</Ph>
+                  <Ph src={t.avatar} className="w-11 h-11 rounded-full flex items-center justify-center text-white font-serif font-bold text-sm flex-shrink-0">{t.initials}</Ph>
                   <div><div className="text-sm font-semibold">{t.who}</div><div className="text-[12.5px] text-ink-faint">{t.loc}</div></div>
                 </div>
               </div>

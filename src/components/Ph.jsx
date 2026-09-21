@@ -1,9 +1,7 @@
-import { IMAGES } from '../data/images.js';
-
-export default function Ph({ variant = 'ph-1', className = '', children }) {
-  const src = IMAGES[variant] || IMAGES['ph-1'];
+export default function Ph({ src, className = '', children }) {
+  // `src` is a direct image path, e.g. "/images/products/lord_Ganesh/photo.jpg"
   return (
-    <div className={`ph ${className}`} style={{ backgroundImage: `url(${src})` }}>
+    <div className={`ph ${className}`} style={src ? { backgroundImage: `url(${src})` } : undefined}>
       {children}
     </div>
   );
