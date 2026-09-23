@@ -41,7 +41,7 @@ export default function ProductCard({ product, showActions = true }) {
       </div>
       <div className="p-[18px] pb-5 flex flex-col gap-2 flex-1">
         <CategoryTag cat={p.cat} label={p.catLabel} />
-        <h3 className="text-[17px] line-clamp-1" title={p.name}>{p.name}</h3>
+        <h3 className="text-[16px] sm:text-[17px] line-clamp-2 sm:line-clamp-1" title={p.name}>{p.name}</h3>
         <p ref={descRef} className="text-[13.5px] text-ink-soft leading-relaxed line-clamp-4 min-h-[6.5em]">{p.desc}</p>
           <Link to={`/product/${p.id}`} className={`text-[13px] font-semibold text-orange hover:underline -mt-1 ${isCut ? '' : 'invisible'}`} aria-hidden={!isCut} tabIndex={isCut ? 0 : -1}>
             more...
@@ -50,14 +50,16 @@ export default function ProductCard({ product, showActions = true }) {
           <span className="font-mono font-bold text-base">{money(p.price)}</span>
         </div>
         {showActions && (
-          <div className="flex gap-2 mt-3">
-            <Link to={`/product/${p.id}`} className="flex-1 justify-center inline-flex items-center gap-2 font-semibold text-[13px] py-[9px] px-4 rounded-full border border-ink/[0.18] bg-paper text-ink hover:border-ink">
-              View Details
-            </Link>
-            <button onClick={() => add(p.id)} className="flex-1 justify-center inline-flex items-center gap-2 font-semibold text-[13px] py-[9px] px-4 rounded-full bg-orange text-white shadow-[0_10px_22px_rgba(232,103,43,0.32)] hover:-translate-y-0.5 transition-transform">
+        
+        <div className="flex flex-col xs:flex-row gap-2 mt-3">
+          <Link to={`/product/${p.id}`} className="flex-1 justify-center whitespace-nowrap inline-flex items-center gap-2 font-semibold text-[12.5px] sm:text-[13px] py-[9px] px-3.5 sm:px-4 rounded-full border border-ink/[0.18] bg-paper text-ink hover:border-ink">
+               View Details
+          </Link>
+        <button onClick={() => add(p.id)} className="flex-1 justify-center whitespace-nowrap inline-flex items-center gap-2 font-semibold text-[12.5px] sm:text-[13px] py-[9px] px-3.5 sm:px-4 rounded-full bg-orange text-white shadow-[0_10px_22px_rgba(232,103,43,0.32)] hover:-translate-y-0.5 transition-transform">
               Add to Cart
-            </button>
-          </div>
+        </button>
+          </div>  
+
         )}
       </div>
     </div>

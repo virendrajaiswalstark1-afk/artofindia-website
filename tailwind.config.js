@@ -1,8 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
+  
   theme: {
     extend: {
+      screens: { xs: '420px' },
       colors: {
         ivory: '#FFFDF8',
         'ivory-deep': '#FFF6E6',

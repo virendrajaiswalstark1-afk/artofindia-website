@@ -12,7 +12,7 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-[200] bg-ivory/92 backdrop-blur-md border-b border-ink/10">
       <div className="max-w-[1240px] mx-auto px-8 sm:px-5 py-[18px] flex items-center justify-between gap-6">
-        <Link to="/" className="font-serif font-bold text-[22px] flex items-center gap-2.5">
+        <Link to="/" className="font-serif font-bold text-[18px] sm:text-[22px] flex items-center gap-2.5 whitespace-nowrap">
           <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-orange to-gold" />
           Art of india
         </Link>

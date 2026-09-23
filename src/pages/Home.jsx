@@ -7,7 +7,7 @@ const GALLERY_ITEMS = [
   { image: '/images/products/Krishna/radhakrishna_id-14.jpg',    name: 'Bal Gopal Krishna', cat: 'Lord Krishna', catKey: 'krishna' },
   { image: "/images/products/lord_Ganesh/lord-ganesh_id-2.jpg",  name: 'Trimukhi Lord Ganesha', cat: 'Lord Ganesh', catKey: 'ganesh' },
   { image: 'images/products/others/turtal_id-20.1.jpg',        name: 'Turtal', cat: 'Decorative', catKey: 'decorative' },
-  { image: '/images/products/lord_Ganesh/lord-ganesh_id-12.jpg', name: 'Lord Ganesh', cat: 'Others', cat: 'Lord Ganesh', catKey: 'ganesh' },
+  { image: '/images/products/lord_Ganesh/lord-ganesh_id-12.jpg', name: 'Lord Ganesh', cat: 'Lord Ganesh', catKey: 'ganesh' },
   { image: '/images/products/lord_Ganesh/lord-ganesh_id-3.jpg',   name: 'Royal Ganesha', cat: 'Lord Ganesh', catKey: 'ganesh' },
   { image: '/images/products/lord_Ganesh/lord-ganesh_id-5.1.jpg', name: 'Lord Ganesh & Goddess Laxmi', cat: 'Lord Ganesh', catKey: 'ganesh' },
   { image: '/images/products/others/Keychain_id-21.1.jpg',        name: 'Key Chian', cat: 'Decorative', catKey: 'decorative' },
@@ -35,7 +35,7 @@ const PROCESS_STEPS = [
 ];
 
 const TESTIMONIALS_GLIMPSE = [
-  { quote: 'The craftsmanship is unbelievable. You can actually see the human touch in it.', product: 'Royal Ganesha', avatar: '/images/products/lord_Ganesh/lord-ganesh-im01-1600-inc-9-inc.jpg', initials: 'AS', who: 'Ananya Sharma', loc: 'Delhi, India',rating:5 },
+  { quote: 'The craftsmanship is unbelievable. You can actually see the human touch in it.', product: 'Royal Ganesha', avatar: '/images/products/lord_Ganesh/lord-ganesh_id-8', initials: 'AS', who: 'Ananya Sharma', loc: 'Delhi, India',rating:5 },
   { quote: "The Lord Ganesh arrived more beautiful than the photos. It's the centerpiece of our living room.", product: 'Lord Ganesh', avatar: '/images/products/lord_Ganesh/lord-ganesh-im06-2000-inc-7.jpg', initials: 'SM', who: 'Shardul singh', loc: 'Delhi',rating:5},
   { quote: "Reading the artisan's story before it arrived made it feel like a gift from a person, not a website.", product: 'Divine Blessing', avatar: '/images/products/lord_Ganesh/lord-ganesh-09-2500-10-inch.jpg', initials: 'PN', who: 'Priya Nambiar', loc: 'Bengaluru, India',rating:4 },
 ];
@@ -62,12 +62,12 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="pt-16 pb-10 bg-gradient-to-b from-ivory-deep to-ivory">
-        <div className="max-w-[1240px] mx-auto px-8 sm:px-5 text-center max-w-[760px]">
-          <Eyebrow color="orange">A platform for art India almost forgot</Eyebrow>
+        <div className="max-w-[1240px] mx-auto px-8 sm:px-5 text-center">
+          <Eyebrow color="orange" className="!before:content-none">A platform for art India almost forgot</Eyebrow>
           
          
 
-          <h1 className="mt-4 text-[42px] sm:text-[56px] lg:text-[72px] leading-[1.03] text-[#FF9933]">
+          <h1 className="text-[34px] sm:text-[56px] lg:text-[72px] leading-[1.03] text-[#FF9933]">
             History,{' '}
             <span
               className="italic font-medium text-white"
