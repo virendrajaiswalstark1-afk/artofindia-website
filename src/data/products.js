@@ -10,9 +10,9 @@ export const PRODUCTS = [
   {
     id: 1, image: "/images/products/lord_Ganesh/lord-ganesh-00-3800-12-inc.jpg", 
     images: ["/images/products/lord_Ganesh/lord-ganesh-00-3800-12-inc.jpg", "/images/products/lord_Ganesh/lord-ganesh-09-2500-10-inch.jpg", "/images/products/lord_Ganesh/lord-ganesh-im-08-2000-inc-9-inc.jpg"], cat: "ganesh", catLabel: "Lord Ganesh",
-    name: "Royal Ganesha", material: "Hand-carved, Betal Nut", size: "12 × 8 × 6 in",
+    name: "Panchmukhi Ganesha", material: "Hand-carved, Betal Nut", size: "12 inc",
     price: 4999, badge: "Bestseller",
-    desc: "This beautifully handcrafted features a seated Panchmukhi (five-faced) Lord Ganesha ",
+    desc: "This Panchmukhi Ganesha is meticulously handcrafted from natural betel nut (supari), making it a rare and distinctive piece of traditional Indian craftsmanship. The five faces of Lord Ganesha represent different aspects of divine energy, symbolizing protection, wisdom, prosperity, strength, and spiritual awareness. Each face represents a sacred dimension of Ganesha, while the intricate carving transforms a humble betel nut into a symbolic work of art and devotion.",
     story: "Carved over two weeks from a Natural betal nut,  final form.",
     craft: "A Hand carved sculpture of Lord Ganesha using Betal nut(Supari)",
     time: "14 days", tradition: "South Indian temple wood-carving"
@@ -58,7 +58,7 @@ export const PRODUCTS = [
   {
     id: 5, image: "/images/products/lord_Ganesh/lord-ganesh_id-5.jpg", 
     images: ["/images/products/lord_Ganesh/lord-ganesh_id-5.jpg",
-             "/images/products/lord_Ganesh/lord-ganesh_id-5.1.jpg"],
+             "/images/products/lord_Ganesh/lord-ganesh_id-5.1.jpg","/images/products/lord_Ganesh/lord-ganesh_id-5.2.jpg"],
         cat: "Lord Ganesh & Goddess Laxmi", catLabel: "Lord Ganesh & Goddess Laxmi",
     name: "Lord Ganesh & Goddess Laxmi", material: "Hand-carved, Betal Nut", size: "5-7 inc",
     price: 2499, badge: "Bestseller",
