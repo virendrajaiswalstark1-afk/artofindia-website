@@ -6,6 +6,9 @@ export default {
     extend: {
       screens: { xs: '420px' },
       colors: {
+        crafted: '#7A1F2B',
+        saffron: '#F4903A',
+        deepmaroon: '#5B1A22',
         ivory: '#FFFDF8',
         'ivory-deep': '#FFF6E6',
         paper: '#FFFFFF',

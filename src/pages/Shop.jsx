@@ -46,7 +46,7 @@ export default function Shop() {
       {/* ================= HERO ================= */}
       <section
         className="relative overflow-hidden bg-ivory-deep"
-        style={{ padding: '56px 20px 52px' }}
+        style={{ padding: 'clamp(28px, 6vw, 56px) 20px clamp(26px, 5vw, 52px)' }}
       >
         {/* soft glows */}
         <div
@@ -116,7 +116,7 @@ export default function Shop() {
       </section>
 
       <section className="pb-16" style={{ paddingTop: 40 }}>
-        <div className="max-w-[1240px] mx-auto px-8 sm:px-5">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-8">
           {/* ================= FILTER BAR ================= */}
           <div
             style={{

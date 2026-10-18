@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Ph from '../components/Ph.jsx';
 import Eyebrow from '../components/Eyebrow.jsx';
+
 /* GALLERY MARQUEE */
 const GALLERY_ITEMS = [
   { image: '/images/products/lord_Ganesh/ID1/lord-ganesh-00-3800-12-inc.jpg', name: 'Divine Blessing Relief', cat: 'Lord Ganesh', catKey: 'ganesh' },
@@ -61,47 +62,49 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="pt-16 pb-10 bg-gradient-to-b from-ivory-deep to-ivory">
-        <div className="max-w-[1240px] mx-auto px-8 sm:px-5 text-center">
-          <Eyebrow color="orange" className="!before:content-none">A platform for art India almost forgot</Eyebrow>
+      <section className="relative overflow-x-clip pt-16 pb-10 bg-gradient-to-b from-[#FDEFD9] via-[#FFF8EE] to-[#FFFCF7]">
+        <div className="relative z-10 max-w-[1240px] mx-auto px-8 sm:px-5 text-center">
+          <Eyebrow color="orange" className="!before:content-none  ">A platform for art India almost forgot</Eyebrow>
           
          
 
-          <h1 className="text-[34px] sm:text-[56px] lg:text-[72px] leading-[1.03] text-[#FF9933]">
+          <h1 className="text-[34px] sm:text-[56px] lg:text-[72px] leading-[1.03] text-[#FF9933] cf-rise cf-d0">
             History,{' '}
             <span
-              className="italic font-medium text-white"
-              style={{ textShadow: '0 0 6px rgba(36,26,16,0.45), 0 0 16px rgba(255,255,255,0.95), 0 0 34px rgba(255,255,255,0.8)' }}
+              className="italic font-medium text-crafted cf-rise cf-d2 inline-block"
+             // style={{ textShadow: '0 0 6px rgba(36,26,16,0.45), 0 0 16px rgba(255,255,255,0.95), 0 0 34px rgba(255,255,255,0.8)' }}
             >
               Crafted by
             </span>{' '}
-            <span className="italic font-medium text-[#138808]">Hand</span>.
+            <span className="italic font-medium text-[#138808] cf-rise cf-d3 inline-block ">Hand</span>.
           </h1>
       
 
-          <p className="text-lg sm:text-xl text-ink-soft max-w-[52ch] mx-auto mt-[22px] leading-relaxed">
+          <p className="text-lg sm:text-xl text-ink-soft max-w-[52ch] mx-auto mt-[22px] leading-relaxed cf-rise cf-d4">
             We search out handmade art that's fading from memory, or so deeply rooted it rarely leaves its own village — and help it, and the families behind it, be seen again.
           </p>
-          <p className="text-lg sm:text-xl text-orange font-semibold mt-2.5 max-w-[52ch] mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-orange font-semibold mt-2.5 max-w-[52ch] mx-auto leading-relaxed cf-rise cf-d5">
             Every piece carries the hands, stories, and traditions of generations.
           </p>
           
-          <div className="flex gap-3.5 justify-center flex-wrap mt-8">
+          <div className="flex gap-3.5 justify-center flex-wrap mt-8 ">
             <Link to="/shop" className="inline-flex items-center gap-2 font-semibold text-[14.5px] py-3.5 px-6 rounded-full 
-            bg-gradient-to-r from-[#FF9933] to-[#138808] text-white shadow-[0_10px_22px_rgba(232,103,43,0.32)] hover:-translate-y-0.5 transition-transform">
+            bg-gradient-to-r from-[#FF9933] to-[#138808] text-white shadow-[0_10px_22px_rgba(232,103,43,0.32)] hover:-translate-y-0.5 transition-transform cf-cta cf-rise cf-d6">
               Explore Our Art
             </Link>
           </div>
         </div>
       </section>
+      
 
       {/* GALLERY MARQUEE */}
       <section className="py-16">
-        <div className="max-w-[1240px] mx-auto px-8 sm:px-5">
-          <div className="max-w-[680px] mb-12">
+        <div className="max-w-[1300px] mx-auto px-8 sm:px-5">
+          <div className="max-w-[820px] mb-12">
             <Eyebrow color="gold">Art we went looking for</Eyebrow>
-            <h2 className="mt-3 text-[28px] sm:text-[36px] lg:text-[44px] leading-tight">A gallery, not just a shop.</h2>
-            <p className="text-ink-soft text-[17px] leading-relaxed mt-3.5">
+            <h2 className="mt-3 font-serif font-extrabold text-deepmaroon text-[30px] sm:text-[44px] lg:text-[56px] leading-[1.05] tracking-tight">A gallery, not just a store.</h2>
+            <div className="mt-5 h-1 w-[124px] rounded-full bg-gradient-to-r from-[#E8A33A] to-[#B8862B]" />
+            <p className="text-ink-soft text-[17px] sm:text-lg leading-relaxed mt-6 max-w-[52ch]">
               Drag your eye across the collection — Each piece is made entirely by hand, with immense patience and care, and many are carved entirely from supari (areca nut).
             </p>
           </div>
