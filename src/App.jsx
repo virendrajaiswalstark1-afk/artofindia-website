@@ -1,3 +1,5 @@
+import Contact from './pages/Contact.jsx';
+import Enquiry from './pages/Enquiry.jsx';
 import { Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav.jsx';
 import Footer from './components/Footer.jsx';
@@ -18,6 +20,8 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/product/:id" element={<Product />} />
+        <Route path="/enquiry" element={<Enquiry />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/testimonials" element={<Testimonials />} />
       </Routes>

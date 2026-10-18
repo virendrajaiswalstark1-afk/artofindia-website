@@ -39,14 +39,16 @@ export default function Testimonials() {
       <section className="py-[88px]">
         <div className="max-w-[1240px] mx-auto px-8 sm:px-5">
           <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-8 md:gap-14 items-center bg-ivory-deep rounded-[28px] p-8 sm:p-14 mb-16">
-            <Ph src="/images/products/lord_Ganesh/lord-ganesh_id-1" className="aspect-[4/4.6] shadow-md2" />
+            
+            
+            <Ph src="/images/Testimonials/ananya-sharma.jpeg" className="aspect-[4/4.6] shadow-md2" />
             <div>
               <div className="text-gold text-sm tracking-[2px]">★★★★★</div>
               <p className="font-serif italic text-xl sm:text-2xl lg:text-3xl leading-relaxed mt-3">
                 "The craftsmanship is unbelievable. It feels completely different from something bought from a normal store. You can actually see the human touch in it."
               </p>
               <div className="font-bold text-[15px] mt-5">Ananya Sharma</div>
-              <div className="text-ink-faint text-[13.5px] mt-0.5">Delhi, India · Purchased Royal Ganesha</div>
+              <div className="text-ink-faint text-[13.5px] mt-0.5">Delhi, India · Purchased Panchmukhi Ganesha Sculpture</div>
             </div>
           </div>
 

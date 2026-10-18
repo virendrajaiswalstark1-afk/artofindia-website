@@ -1,19 +1,19 @@
 import { Link } from 'react-router-dom';
 import Ph from '../components/Ph.jsx';
 import Eyebrow from '../components/Eyebrow.jsx';
-
+/* GALLERY MARQUEE */
 const GALLERY_ITEMS = [
-  { image: '/images/products/lord_Ganesh/lord-ganesh-00-3800-12-inc.jpg', name: 'Divine Blessing Relief', cat: 'Lord Ganesh', catKey: 'ganesh' },
-  { image: '/images/products/Krishna/radhakrishna_id-14.jpg',    name: 'Bal Gopal Krishna', cat: 'Lord Krishna', catKey: 'krishna' },
-  { image: "/images/products/lord_Ganesh/lord-ganesh_id-2.jpg",  name: 'Trimukhi Lord Ganesha', cat: 'Lord Ganesh', catKey: 'ganesh' },
-  { image: 'images/products/others/turtal_id-20.1.jpg',        name: 'Turtal', cat: 'Decorative', catKey: 'decorative' },
-  { image: '/images/products/lord_Ganesh/lord-ganesh_id-12.jpg', name: 'Lord Ganesh', cat: 'Lord Ganesh', catKey: 'ganesh' },
-  { image: '/images/products/lord_Ganesh/lord-ganesh_id-3.jpg',   name: 'Royal Ganesha', cat: 'Lord Ganesh', catKey: 'ganesh' },
-  { image: '/images/products/lord_Ganesh/lord-ganesh_id-5.1.jpg', name: 'Lord Ganesh & Goddess Laxmi', cat: 'Lord Ganesh', catKey: 'ganesh' },
-  { image: '/images/products/others/Keychain_id-21.1.jpg',        name: 'Key Chian', cat: 'Decorative', catKey: 'decorative' },
-  { image: '/images/products/Krishna/radha-krishan_17.jpg',       name: 'Radha Krishna', cat: 'Lord Krishna', catKey: 'krishna' },
-  { image: '/images/products/lord_Ganesh/lord-ganesh_id-13.jpg',  name: 'Lord Ganesh', cat: 'Decorative', catKey: 'decorative' },
-  { image: '/images/products/lord_Ganesh/lord-ganesh_id-7.jpg',   name: 'Lord Ganesh', cat: 'Lord Ganesh', catKey: 'ganesh' },
+  { image: '/images/products/lord_Ganesh/ID1/lord-ganesh-00-3800-12-inc.jpg', name: 'Divine Blessing Relief', cat: 'Lord Ganesh', catKey: 'ganesh' },
+  { image: '/images/products/Krishna/ID14/radhakrishna_id-14.jpg',    name: 'Bal Gopal Krishna', cat: 'Lord Krishna', catKey: 'krishna' },
+  { image: "/images/products/lord_Ganesh/ID2/lord-ganesh_id-2.jpg",  name: 'Trimukhi Lord Ganesha', cat: 'Lord Ganesh', catKey: 'ganesh' },
+  { image: 'images/products/others/ID20/turtal_id-20.1.jpg',        name: 'Turtal', cat: 'Decorative', catKey: 'decorative' },
+  { image: '/images/products/lord_Ganesh/ID12/lord-ganesh_id-12.jpg', name: 'Lord Ganesh', cat: 'Lord Ganesh', catKey: 'ganesh' },
+  { image: '/images/products/lord_Ganesh/ID3/lord-ganesh_id-3.jpg',   name: 'Royal Ganesha', cat: 'Lord Ganesh', catKey: 'ganesh' },
+  { image: '/images/products/lord_Ganesh/ID5/lord-ganesh_id-5.1.jpg', name: 'Lord Ganesh & Goddess Laxmi', cat: 'Lord Ganesh', catKey: 'ganesh' },
+  { image: '/images/products/others/ID21/Keychain_id-21.1.jpg',        name: 'Key Chian', cat: 'Decorative', catKey: 'decorative' },
+  { image: '/images/products/Krishna/ID17/radha-krishan_17.jpg',       name: 'Radha Krishna', cat: 'Lord Krishna', catKey: 'krishna' },
+  { image: '/images/products/lord_Ganesh/ID13/lord-ganesh_id-13.jpg',  name: 'Lord Ganesh', cat: 'Decorative', catKey: 'decorative' },
+  { image: '/images/products/lord_Ganesh/ID7/lord-ganesh_id-7.jpg',   name: 'Lord Ganesh', cat: 'Lord Ganesh', catKey: 'ganesh' },
   
   
 ];
@@ -21,11 +21,11 @@ const GALLERY_ITEMS = [
 
 const PROCESS_STEPS = [
   {
-    eyebrow: 'gold', num: '01 — Selection & Preparation', title: 'From Supari to a Canvas', image: '/images/products/jewellery/jewellery_id-18.jpg', reverse: false,
+    eyebrow: 'gold', num: '01 — Selection & Preparation', title: 'From Supari to a Canvas', image: '/images/products/jewellery/ID18/jewellery_id-18.jpg', reverse: false,
     body: "Every piece begins with choosing the right supari. The nut is carefully selected, prepared, and cleaned before the real work begins. Its small, hard surface becomes the artist's canvas. There is no room for careless cuts — the maker works slowly, understanding the natural shape of the supari and imagining what it can become. What looks like an ordinary nut at first is gradually prepared for a transformation that depends almost entirely on patience and a steady hand.",
   },
   {
-    eyebrow: 'orange', num: '02 — Carving & Shaping', title: 'Carving a World by Hand', image: '/images/products/jewellery/jewellery_id-18.1.jpg', reverse: true,
+    eyebrow: 'orange', num: '02 — Carving & Shaping', title: 'Carving a World by Hand', image: '/images/products/jewellery/ID18/jewellery_id-18.1.jpg', reverse: true,
     body: 'Once the surface is ready, the artisan begins carving. Using delicate hand tools, tiny cuts are made one after another to create the basic form of the design. Traditional motifs, objects, animals, and architectural forms can emerge from a surface only a few centimetres wide. The craft demands extraordinary control: a cut that is too deep can destroy the entire piece. Every movement is deliberate, turning a simple supari into a miniature work of art.',
   },
   {
@@ -123,7 +123,7 @@ export default function Home() {
       {/* NO TWO PIECES */}
       <section className="py-[88px]">
         <div className="max-w-[1240px] mx-auto px-8 sm:px-5 grid md:grid-cols-2 gap-9 md:gap-16 items-center">
-          <div><Ph src="/images/products/lord_Ganesh/lord-ganesh-00-3800-12-inc.jpg" className="aspect-[4/3.2] shadow-md2" /></div>
+          <div><Ph src="/images/products/lord_Ganesh/ID1/lord-ganesh-00-3800-12-inc.jpg" className="aspect-[4/3.2] shadow-md2" /></div>
           <div>
             <Eyebrow color="terracotta">Every piece has a story</Eyebrow>
             <h2 className="mt-3 text-[28px] sm:text-[36px] lg:text-[44px] leading-tight">No two pieces are ever quite the same.</h2>

@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { PRODUCTS } from '../data/products.js';
-import Eyebrow from '../components/Eyebrow.jsx';
 import ProductCard from '../components/ProductCard.jsx';
 
 const CHIPS = [
@@ -44,78 +43,174 @@ export default function Shop() {
 
   return (
     <>
-      <section className="py-16 bg-ivory-deep">
-        <div className="max-w-[1240px] mx-auto px-8 sm:px-5 text-center">
-          <Eyebrow color="orange">Shop the collection</Eyebrow>
-          <h1 className="mt-3.5 text-[32px] sm:text-[42px] lg:text-[52px]">Explore the Collection</h1>
-          <p className="text-lg sm:text-xl text-ink-soft max-w-[52ch] mx-auto mt-4 leading-relaxed">
-            Handmade pieces created with patience, tradition, and soul — some of them from art forms most people have never had the chance to hear about.
+      {/* ================= HERO ================= */}
+      <section
+        className="relative overflow-hidden bg-ivory-deep"
+        style={{ padding: '56px 20px 52px' }}
+      >
+        {/* soft glows */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute', top: -140, left: -120, width: 380, height: 380,
+            borderRadius: '50%', pointerEvents: 'none',
+            background: 'radial-gradient(circle, rgba(232,103,43,0.18), rgba(232,103,43,0) 70%)',
+          }}
+        />
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute', bottom: -160, right: -120, width: 420, height: 420,
+            borderRadius: '50%', pointerEvents: 'none',
+            background: 'radial-gradient(circle, rgba(201,162,39,0.20), rgba(201,162,39,0) 70%)',
+          }}
+        />
+
+        <div
+          className="relative max-w-[1240px] mx-auto text-center"
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+        >
+          {/* heading */}
+          <h1
+            style={{
+              margin: 0,
+              color: '#6B1F2E',
+              fontSize: 'clamp(28px, 3.6vw, 42px)',
+              lineHeight: 1.15,
+              letterSpacing: '-0.015em',
+            }}
+          >
+            Explore the <span className="italic" style={{ color: '#D2561C' }}>Collection</span>
+          </h1>
+
+          {/* divider */}
+          <div
+            aria-hidden="true"
+            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, margin: '20px 0 18px' }}
+          >
+            <span style={{ display: 'block', width: 72, height: 1, background: 'linear-gradient(to right, rgba(210,86,28,0), rgba(210,86,28,0.8))' }} />
+            <span style={{ color: '#D2561C', fontSize: 14, lineHeight: 1 }}>✦</span>
+            <span style={{ display: 'block', width: 72, height: 1, background: 'linear-gradient(to left, rgba(210,86,28,0), rgba(210,86,28,0.8))' }} />
+          </div>
+
+          {/* one-line quote on wide screens, wraps neatly on small ones */}
+          <p
+            style={{
+              margin: 0,
+              color: '#5B3A21',
+              fontSize: 'clamp(14px, calc((100vw - 160px) / 64), 19px)',
+              lineHeight: 1.65,
+              fontWeight: 500,
+              letterSpacing: '0.005em',
+              textWrap: 'balance',
+            }}
+          >
+            <span style={{ color: '#D2561C', fontSize: '1.4em', lineHeight: 0, verticalAlign: '-0.15em', marginRight: 4 }}>“</span>
+            When you buy handmade, you don't just take home an object. You take home{' '}
+            <span style={{ color: '#8A2236', fontWeight: 700 }}>
+              someone's time, knowledge, patience, and story.
+            </span>
+            <span style={{ color: '#D2561C', fontSize: '1.4em', lineHeight: 0, verticalAlign: '-0.15em', marginLeft: 2 }}>”</span>
           </p>
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="pb-16" style={{ paddingTop: 40 }}>
         <div className="max-w-[1240px] mx-auto px-8 sm:px-5">
-          <div id="rewa-story" className="heritage-story-bg grid md:grid-cols-[0.85fr_1.15fr] gap-8 md:gap-14 items-center text-[#F3E2E6] rounded-[28px] p-8 sm:p-14">
-            <div className="aspect-[4/4.6] rounded-[18px] overflow-hidden shadow-lg2">
-              <img
-                src="/images/heritage/rewa-heritage.jpg"
-                alt="Hand-carved supari (areca nut) sculptures from the Kunder family's Rewa workshop"
-                className="w-full h-full object-cover"
-              />
+          {/* ================= FILTER BAR ================= */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: 16,
+              padding: '16px 20px',
+              marginBottom: 32,
+              background: '#FFFFFF',
+              borderRadius: 20,
+              border: '1px solid rgba(43,29,20,0.10)',
+              boxShadow: '0 8px 28px rgba(43,29,20,0.07)',
+            }}
+          >
+            {/* category chips */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+              {CHIPS.map(c => {
+                const active = activeCat === c.cat;
+                return (
+                  <button
+                    key={c.cat}
+                    onClick={() => selectCat(c.cat)}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      height: 44,
+                      padding: '0 22px',
+                      borderRadius: 999,
+                      fontSize: 14.5,
+                      fontWeight: 600,
+                      whiteSpace: 'nowrap',
+                      cursor: 'pointer',
+                      border: active ? '1px solid #2B1D14' : '1px solid rgba(91,58,33,0.18)',
+                      background: active ? '#2B1D14' : '#FFF6E8',
+                      color: active ? '#FFF8EC' : '#5B3A21',
+                      boxShadow: active ? '0 6px 14px rgba(43,29,20,0.22)' : 'none',
+                      transition: 'all .2s ease',
+                    }}
+                  >
+                    {c.label}
+                  </button>
+                );
+              })}
             </div>
-            <div>
-              <Eyebrow dotColor="#E8B7C0" className="text-[#E8B7C0]">Where royalty met the hand of an artisan</Eyebrow>
-              <h2 className="text-white mt-3 text-2xl sm:text-3xl lg:text-[34px]">The Rewa legacy behind our Supari Art.</h2>
-              <p className="font-serif italic text-[19px] text-white leading-[1.55] mt-3.5">
-                "He noticed something others might have overlooked — the intricate natural patterns hidden inside the humble areca nut."
-              </p>
-              <p className="text-[#E8D3D7] text-[15px] leading-[1.7] mt-3.5">
-                Rewa is remembered as the Land of White Tigers — in 1951, Maharaja Martand Singh brought a rare white tiger named Mohan to the royal fort at Govindgarh, and his lineage went on to become the ancestor of nearly every white tiger in captivity today. But around that same royal era, a quieter story was taking shape in the same court — not in the forest, but in the hands of a toy maker named Ram Siya Kunder.
-              </p>
-              <p className="text-[#E8D3D7] text-[15px] leading-[1.7] mt-3.5">
-                By one family account, Ram Siya was already crafting small supari pieces for the court of Maharaja Gulab Singh as early as 1932 — sindoor boxes made from areca nut, rewarded with fifty rupees at the durbar. Another account, recorded in detail, places the turning point in 1942: the King asked him to peel a supari, and while scraping away its outer layer, he noticed the intricate natural grain hidden inside. He began carving it — a tea set, a kangaroo, a mandir — and built a repertoire of around 40 designs. Ram Siya was later honored by the President of India for his work. He passed away in 1993; his family, the Kunders, still carve in Rewa today.
-              </p>
-              <div className="mt-4.5 mt-[18px] p-4 sm:p-[18px] rounded-xl bg-white/[0.08] border-l-[3px] border-[#E8B7C0] text-[13.5px] leading-relaxed text-[#E8D3D7]">
-                This craft is documented by the Government of Rewa as a local handicraft, credited to the Kunder family's "hard labor and continuous research." Every piece in our Supari Art collection is made by their family workshop, using the same hand tools used since the 1940s.
-              </div>
-              <button onClick={() => selectCat('others')} className="mt-[22px] inline-flex items-center gap-2 font-semibold text-[14.5px] py-3.5 px-6 rounded-full border border-white/40 bg-transparent text-white hover:border-white transition-colors">
-                Shop the Supari Art Collection
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="pt-0 pb-16">
-        <div className="max-w-[1240px] mx-auto px-8 sm:px-5">
-          <div className="flex items-center justify-between gap-5 flex-wrap mb-8">
-            <div className="flex gap-2.5 flex-wrap">
-              {CHIPS.map(c => (
-                <button
-                  key={c.cat}
-                  onClick={() => selectCat(c.cat)}
-                  className={`text-[13.5px] font-semibold py-[9px] px-[18px] rounded-full border ${activeCat === c.cat ? 'bg-ink text-ivory border-ink' : 'bg-paper text-ink-soft border-ink/[0.18]'}`}
-                >
-                  {c.label}
-                </button>
-              ))}
-            </div>
-            <div className="flex gap-3 items-center flex-wrap">
-              <div className="flex items-center gap-2 bg-paper border border-ink/[0.18] rounded-full py-2 px-4">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            {/* search + sort */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 12 }}>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 10,
+                  height: 44,
+                  padding: '0 18px',
+                  borderRadius: 999,
+                  background: '#FFF6E8',
+                  border: '1px solid rgba(91,58,33,0.18)',
+                  color: '#5B3A21',
+                }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                 <input
                   type="text"
                   value={query}
                   onChange={e => setQuery(e.target.value)}
                   placeholder="Search artwork..."
-                  className="border-none outline-none bg-transparent text-sm w-[150px]"
+                  style={{
+                    border: 'none',
+                    outline: 'none',
+                    background: 'transparent',
+                    fontSize: 14.5,
+                    width: 170,
+                    color: '#2B1D14',
+                  }}
                 />
               </div>
               <select
                 value={sortBy}
                 onChange={e => setSortBy(e.target.value)}
-                className="border border-ink/[0.18] rounded-full py-[9px] px-3.5 bg-paper text-[13.5px] font-semibold text-ink"
+                style={{
+                  height: 44,
+                  padding: '0 16px',
+                  borderRadius: 999,
+                  border: '1px solid rgba(91,58,33,0.18)',
+                  background: '#FFF6E8',
+                  fontSize: 14.5,
+                  fontWeight: 600,
+                  color: '#2B1D14',
+                  cursor: 'pointer',
+                  outline: 'none',
+                }}
               >
                 <option value="featured">Featured</option>
                 <option value="new">New Arrivals</option>

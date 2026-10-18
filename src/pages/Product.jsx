@@ -1,17 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { PRODUCTS, money } from '../data/products.js';
-import { useCart } from '../context/CartContext.jsx';
 import Ph from '../components/Ph.jsx';
 import Eyebrow from '../components/Eyebrow.jsx';
 import CategoryTag from '../components/CategoryTag.jsx';
 import ProductCard from '../components/ProductCard.jsx';
+import RewaStory from '../components/RewaStory.jsx';
 
 export default function Product() {
   const { id } = useParams();
-  const { add } = useCart();
 
-  const [qty, setQty] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
 
   const numericId = parseInt(id, 10) || PRODUCTS[0].id;
@@ -30,8 +28,7 @@ export default function Product() {
       : [p.image];
 
   useEffect(() => {
-    document.title = p.name + ' — Art of india';
-    setQty(1);
+    document.title = p.name + ' — Art of India';
     setSelectedImage(0);
   }, [p.id, p.name]);
 
@@ -130,9 +127,30 @@ export default function Product() {
                 </span>
               </div>
 
-              <p className="text-ink-soft mt-3.5 text-[15.5px] leading-relaxed">
-                {p.desc}
-              </p>
+              
+             <div className="text-ink-soft mt-3.5 text-[15.5px] leading-relaxed">
+           {p.desc.split('\n').map((line, index) => {
+             // Splits the line at **bold text** markings
+             const parts = line.split(/(\*\*.*?\*\*)/g);
+    
+            return (
+             <p key={index} className="mb-3 last:mb-0">
+               {parts.map((part, i) => {
+               // If the text segment is wrapped in **, render it bold
+              if (part.startsWith('**') && part.endsWith('**')) {
+              return (
+               <strong key={i} className="font-bold text-ink-main">
+                 {part.slice(2, -2)}
+               </strong>
+                    );
+                    }
+                  return part;
+                   })}
+                  </p>
+                    );
+                    })}
+              </div>
+
 
               {/* PRODUCT DETAILS */}
               <div className="grid grid-cols-2 gap-3.5 gap-x-6 my-6 p-[22px] bg-ivory-deep rounded-xl">
@@ -175,63 +193,54 @@ export default function Product() {
 
               </div>
 
-              {/* QUANTITY */}
-              <div className="flex items-center gap-4 my-[22px]">
+              {/* BUY NOW */}
+              <div className="my-[22px]">
 
-                <div className="flex items-center border border-ink/[0.18] rounded-full overflow-hidden">
+                {/* Two equal-width buttons: Enquiry (left) + Buy Now (right) */}
+                <div className="grid grid-cols-2 gap-3 max-w-[420px]">
 
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setQty(q => Math.max(1, q - 1))
-                    }
-                    aria-label="Decrease quantity"
-                    className="w-[38px] h-[38px] border-none bg-none text-base"
+                  {/* ENQUIRY — corporate bulk gifting & special-price orders */}
+                  <Link
+                    to={`/enquiry?product=${encodeURIComponent(p.name)}`}
+                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold text-[14px] h-11 px-4 rounded-full bg-maroon text-white shadow-[0_6px_14px_rgba(0,0,0,0.18)] hover:bg-maroon-deep hover:-translate-y-0.5 transition-all"
                   >
-                    −
-                  </button>
+                    <PhoneIcon size={16} />
+                    Enquiry
+                  </Link>
 
-                  <span className="w-[34px] text-center font-semibold">
-                    {qty}
-                  </span>
-
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setQty(q => q + 1)
-                    }
-                    aria-label="Increase quantity"
-                    className="w-[38px] h-[38px] border-none bg-none text-base"
-                  >
-                    +
-                  </button>
+                  {/* BUY NOW */}
+                  {p.amazonUrl ? (
+                    <a
+                      href={p.amazonUrl}
+                      target="_blank"
+                      rel="noopener noreferrer sponsored"
+                      onClick={() =>
+                        window.gtag?.('event', 'buy_now_click', {
+                          product_name: p.name,
+                          location: 'product_page',
+                        })
+                      }
+                      className="inline-flex items-center justify-center whitespace-nowrap font-semibold text-[14px] h-11 px-4 rounded-full bg-orange text-white shadow-[0_6px_14px_rgba(232,103,43,0.28)] hover:-translate-y-0.5 transition-transform"
+                    >
+                      Buy Now
+                    </a>
+                  ) : (
+                    <button
+                      type="button"
+                      disabled
+                      className="inline-flex items-center justify-center whitespace-nowrap font-semibold text-[14px] h-11 px-4 rounded-full bg-orange text-white opacity-50 cursor-not-allowed"
+                    >
+                      Coming soon
+                    </button>
+                  )}
 
                 </div>
 
-                <span className="text-[13px] text-ink-faint">
-                  Only handmade pieces — quantities are limited
-                </span>
-
-              </div>
-
-              {/* CART BUTTONS */}
-              <div className="flex gap-3">
-
-                <button
-                  type="button"
-                  onClick={() => add(p.id, qty)}
-                  className="flex-1 justify-center inline-flex items-center gap-2 font-semibold text-[14.5px] py-3.5 px-6 rounded-full border border-ink/[0.18] bg-paper text-ink hover:border-ink"
-                >
-                  Add to Cart
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => add(p.id, qty)}
-                  className="flex-1 justify-center inline-flex items-center gap-2 font-semibold text-[14.5px] py-3.5 px-6 rounded-full bg-orange text-white shadow-[0_10px_22px_rgba(232,103,43,0.32)] hover:-translate-y-0.5 transition-transform"
-                >
-                  Buy Now
-                </button>
+                <p className="mt-3 text-[12.5px] text-ink-faint leading-relaxed">
+                  Secure checkout on our partner store, where you can also
+                  choose the quantity. Only handmade pieces — stock is limited.
+                  Need corporate bulk gifts or a special-price order? Tap Enquiry.
+                </p>
 
               </div>
 
@@ -247,8 +256,8 @@ export default function Product() {
               The story behind this piece
             </Eyebrow>
 
-            <p className="font-serif italic text-xl text-ink-soft mt-3.5 max-w-[64ch] leading-relaxed">
-              "{p.story}"
+            <p className="font-serif italic text-xl text-ink-soft mt-3.5 max-w-[64ch] leading-relaxed whitespace-pre-line">
+              {p.story}
             </p>
 
             {isSupari ? (
@@ -270,12 +279,12 @@ export default function Product() {
                     the Kunders.
                   </p>
 
-                  <Link
-                    to="/shop#rewa-story"
+                  <a
+                    href="#rewa-story"
                     className="text-[13px] font-bold text-maroon underline whitespace-nowrap"
                   >
                     Read the full story →
-                  </Link>
+                  </a>
                 </div>
 
               </div>
@@ -297,12 +306,12 @@ export default function Product() {
                     born in the royal court of Rewa in the 1930s–40s.
                   </p>
 
-                  <Link
-                    to="/shop#rewa-story"
+                  <a
+                    href="#rewa-story"
                     className="text-[13px] font-bold text-maroon underline whitespace-nowrap"
                   >
                     Read that story →
-                  </Link>
+                  </a>
                 </div>
 
               </div>
@@ -506,6 +515,13 @@ export default function Product() {
       </section>
 
       {/* ================================
+          REWA STORY (moved here from the Shop page)
+          To show it only on Supari products, use:
+          {isSupari && <RewaStory />}
+      ================================= */}
+      <RewaStory />
+
+      {/* ================================
           RELATED PRODUCTS
       ================================= */}
       <section className="py-16">
@@ -538,6 +554,30 @@ export default function Product() {
         </div>
       </section>
     </>
+  );
+}
+
+
+/* ==========================================
+   PHONE ICON (used on the Enquiry button)
+========================================== */
+
+function PhoneIcon({ size = 16 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      style={{ width: size, height: size, minWidth: size, flexShrink: 0 }}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
   );
 }
 

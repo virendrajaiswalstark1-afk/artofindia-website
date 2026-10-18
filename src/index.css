@@ -23,6 +23,20 @@
 @media (prefers-reduced-motion: reduce) {
   *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
+/* ---------- logo tagline tricolor shine ---------- */
+@keyframes taglineTricolor {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.tagline-tricolor {
+  background: linear-gradient(90deg, #FF9933 0%, #FF9933 50%, #138808 70%, #138808 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: taglineTricolor 3.5s ease-in-out infinite;
+}
 
 /* ---------- placeholder photography ----------
    Each .ph tile's actual photo comes from src/data/images.js (set inline
@@ -37,7 +51,7 @@
 
 /* ---------- eyebrow dot accent ---------- */
 .eyebrow{ font-family:'Space Mono', monospace; text-transform:uppercase; letter-spacing:0.14em; font-size:12px; font-weight:700; display:inline-flex; align-items:center; gap:8px; }
-/*.eyebrow::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--dot,#662608); display:inline-block; } */
+.eyebrow::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--dot,#662608); display:inline-block; }
 
 /* ---------- category tag dot accent ---------- */
 .cat-tag::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--cat,#9C8F7C); display:inline-block; }
