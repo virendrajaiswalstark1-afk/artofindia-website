@@ -180,7 +180,8 @@ export const PRODUCTS = [
   
   { //4T-UUEU-B2FJ
     id: 14, image:"/public/images/products/Krishna/ID14/radhakrishna_id-14.jpg",
-    images: ["/public/images/products/Krishna/ID14/radhakrishna_id-14.jpg","/public/images/products/Krishna/ID14/radhakrishna_id-14.1.jpg"], 
+    images: ["/public/images/products/Krishna/ID14/radhakrishna_id-14.jpg",
+             "/public/images/products/Krishna/ID14/radhakrishna_id-14.1.jpg"], 
     cat: "krishna", catLabel: "Lord Krishna",
     name: "Radha Krishna", material: "Hand-carved, Betal Nut", size: "7 inc",
     price: 1999, badge: "New Arrival",
