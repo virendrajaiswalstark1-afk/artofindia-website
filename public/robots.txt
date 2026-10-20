@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://www.craftify.in/sitemap.xml
+Sitemap: https://craftify.in/sitemap.xml
