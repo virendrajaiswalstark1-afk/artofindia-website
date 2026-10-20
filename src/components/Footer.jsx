@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { SOCIALS } from '../data/contact.js';
 export default function Footer() {
   const [subscribed, setSubscribed] = useState(false);
 
@@ -38,24 +38,32 @@ export default function Footer() {
           </div>
           <div>
             <h5 className="font-mono text-xs tracking-widest uppercase text-[#B8AA92] mb-4">Support</h5>
-            <a href="#" className="block text-[#EFE7D8] text-[14.5px] mb-[11px] opacity-90 hover:opacity-100 hover:text-gold">Contact</a>
-            <a href="#" className="block text-[#EFE7D8] text-[14.5px] mb-[11px] opacity-90 hover:opacity-100 hover:text-gold">Returns</a>
+            <Link to="/contact" className="block text-[#EFE7D8] text-[14.5px] mb-[11px] opacity-90 hover:opacity-100 hover:text-gold">Contact</Link>
+            <Link to="/contact" className="block text-[#EFE7D8] text-[14.5px] mb-[11px] opacity-90 hover:opacity-100 hover:text-gold">Returns</Link>
             
           </div>
           <div>
             <h5 className="font-mono text-xs tracking-widest uppercase text-[#B8AA92] mb-4">Stay in touch</h5>
             <p className="text-[13.5px] text-[#CBBFA9]">Stories, new collections &amp; handmade treasures.</p>
-            <form onSubmit={handleSubmit} className="flex gap-2 mt-3.5">
-              <div className="flex gap-3 mt-5">
-              {['IG', 'FB', 'PN', 'YT'].map(s => (
-                <a key={s} href="#" aria-label={s} className="w-9 h-9 rounded-full border border-[#EFE7D8]/25 flex items-center justify-center text-sm hover:border-gold hover:text-gold">{s}</a>
-              ))}
-            </div>   
-            </form>
+            <div className="flex gap-3 mt-5">
+         {SOCIALS.filter(s => s.url).map(s => (
+           <a
+              key={s.key}
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              title={s.label}
+              className="w-9 h-9 rounded-full border border-[#EFE7D8]/25 flex items-center justify-center text-sm hover:border-gold hover:text-gold"
+            >
+              {{ instagram: 'IG', facebook: 'FB',  youtube: 'YT' }[s.key]}
+            </a>
+          ))}
+        </div>
           </div>
         </div>
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2.5 pt-[26px] text-[12.5px] text-ink-faint font-mono">
-          <span>© 2026 Art of india. All rights reserved.</span>
+          <span>© 2026 Craftify.in. All rights reserved.</span>
           <span>Handmade heritage, delivered worldwide</span>
         </div>
       </div>

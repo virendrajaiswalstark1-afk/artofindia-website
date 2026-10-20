@@ -11,8 +11,7 @@ export const CONTACT = {
 // Social media links. Replace each url with your real page link.
 // Leave a url as '' (empty) to hide that icon.
 export const SOCIALS = [
-  { key: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/' },
+  { key: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/wecraftify.in/' },
   { key: 'facebook', label: 'Facebook', url: 'https://www.facebook.com/' },
-  { key: 'pinterest', label: 'Pinterest', url: 'https://www.pinterest.com/' },
   { key: 'youtube', label: 'YouTube', url: 'https://www.youtube.com/' },
 ];

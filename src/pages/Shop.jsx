@@ -46,7 +46,7 @@ export default function Shop() {
       {/* ================= HERO ================= */}
       <section
         className="relative overflow-hidden bg-ivory-deep"
-        style={{ padding: 'clamp(28px, 6vw, 56px) 20px clamp(26px, 5vw, 52px)' }}
+        style={{ padding: '56px 20px 52px' }}
       >
         {/* soft glows */}
         <div
@@ -116,101 +116,121 @@ export default function Shop() {
       </section>
 
       <section className="pb-16" style={{ paddingTop: 40 }}>
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-8">
-          {/* ================= FILTER BAR ================= */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              flexWrap: 'wrap',
-              gap: 16,
-              padding: '16px 20px',
-              marginBottom: 32,
-              background: '#FFFFFF',
-              borderRadius: 20,
-              border: '1px solid rgba(43,29,20,0.10)',
-              boxShadow: '0 8px 28px rgba(43,29,20,0.07)',
-            }}
-          >
+        <div className="max-w-[1240px] mx-auto px-8 sm:px-5">
+          {/* ================= FILTER BAR (responsive) ================= */}
+          <style>{`
+            /* ---------- Desktop / laptop ---------- */
+            .shopbar {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              gap: 16px;
+              padding: 16px 20px;
+              margin-bottom: 32px;
+              background: #FFFFFF;
+              border-radius: 20px;
+              border: 1px solid rgba(43,29,20,0.10);
+              box-shadow: 0 8px 28px rgba(43,29,20,0.07);
+            }
+            .shopbar-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+            .shopbar-chip {
+              display: inline-flex; align-items: center; justify-content: center;
+              height: 44px; padding: 0 22px; border-radius: 999px;
+              font-size: 14.5px; font-weight: 600; white-space: nowrap; cursor: pointer;
+              border: 1px solid rgba(91,58,33,0.18);
+              background: #FFF6E8; color: #5B3A21;
+              transition: all .2s ease;
+            }
+            .shopbar-chip.is-active {
+              border-color: #2B1D14; background: #2B1D14; color: #FFF8EC;
+              box-shadow: 0 6px 14px rgba(43,29,20,0.22);
+            }
+            .shopbar-tools { display: flex; align-items: center; gap: 12px; }
+            .shopbar-search {
+              display: flex; align-items: center; gap: 10px;
+              height: 44px; padding: 0 18px; border-radius: 999px;
+              background: #FFF6E8; border: 1px solid rgba(91,58,33,0.18); color: #5B3A21;
+            }
+            .shopbar-search input {
+              border: none; outline: none; background: transparent;
+              font-size: 14.5px; width: 170px; color: #2B1D14;
+            }
+            .shopbar-sort {
+              height: 44px; padding: 0 16px; border-radius: 999px;
+              border: 1px solid rgba(91,58,33,0.18); background: #FFF6E8;
+              font-size: 14.5px; font-weight: 600; color: #2B1D14;
+              cursor: pointer; outline: none;
+            }
+
+            /* ---------- Phones ---------- */
+            @media (max-width: 767px) {
+              .shopbar {
+                flex-direction: column;
+                align-items: stretch;
+                flex-wrap: nowrap;
+                gap: 10px;
+                padding: 10px;
+                margin-bottom: 20px;
+                border-radius: 16px;
+                box-shadow: 0 4px 14px rgba(43,29,20,0.06);
+              }
+              /* chips: one swipeable row instead of wrapping */
+              .shopbar-chips {
+                flex-wrap: nowrap;
+                gap: 8px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                padding: 2px 2px 4px;
+              }
+              .shopbar-chips::-webkit-scrollbar { display: none; }
+              .shopbar-chip {
+                flex: 0 0 auto;
+                height: 36px; padding: 0 16px; font-size: 13.5px;
+              }
+              /* search + sort share one row */
+              .shopbar-tools { gap: 8px; }
+              .shopbar-search {
+                flex: 1 1 auto; min-width: 0; height: 40px; padding: 0 14px; gap: 8px;
+              }
+              .shopbar-search input { width: 100%; min-width: 0; font-size: 14px; }
+              .shopbar-sort {
+                flex: 0 0 auto; width: 128px; height: 40px; padding: 0 10px; font-size: 13px;
+              }
+            }
+          `}</style>
+
+          <div className="shopbar">
             {/* category chips */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
-              {CHIPS.map(c => {
-                const active = activeCat === c.cat;
-                return (
-                  <button
-                    key={c.cat}
-                    onClick={() => selectCat(c.cat)}
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      height: 44,
-                      padding: '0 22px',
-                      borderRadius: 999,
-                      fontSize: 14.5,
-                      fontWeight: 600,
-                      whiteSpace: 'nowrap',
-                      cursor: 'pointer',
-                      border: active ? '1px solid #2B1D14' : '1px solid rgba(91,58,33,0.18)',
-                      background: active ? '#2B1D14' : '#FFF6E8',
-                      color: active ? '#FFF8EC' : '#5B3A21',
-                      boxShadow: active ? '0 6px 14px rgba(43,29,20,0.22)' : 'none',
-                      transition: 'all .2s ease',
-                    }}
-                  >
-                    {c.label}
-                  </button>
-                );
-              })}
+            <div className="shopbar-chips">
+              {CHIPS.map(c => (
+                <button
+                  key={c.cat}
+                  type="button"
+                  onClick={() => selectCat(c.cat)}
+                  className={`shopbar-chip${activeCat === c.cat ? ' is-active' : ''}`}
+                >
+                  {c.label}
+                </button>
+              ))}
             </div>
 
             {/* search + sort */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 12 }}>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 10,
-                  height: 44,
-                  padding: '0 18px',
-                  borderRadius: 999,
-                  background: '#FFF6E8',
-                  border: '1px solid rgba(91,58,33,0.18)',
-                  color: '#5B3A21',
-                }}
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <div className="shopbar-tools">
+              <div className="shopbar-search">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" style={{ flexShrink: 0 }}><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                 <input
                   type="text"
                   value={query}
                   onChange={e => setQuery(e.target.value)}
                   placeholder="Search artwork..."
-                  style={{
-                    border: 'none',
-                    outline: 'none',
-                    background: 'transparent',
-                    fontSize: 14.5,
-                    width: 170,
-                    color: '#2B1D14',
-                  }}
                 />
               </div>
               <select
+                className="shopbar-sort"
                 value={sortBy}
                 onChange={e => setSortBy(e.target.value)}
-                style={{
-                  height: 44,
-                  padding: '0 16px',
-                  borderRadius: 999,
-                  border: '1px solid rgba(91,58,33,0.18)',
-                  background: '#FFF6E8',
-                  fontSize: 14.5,
-                  fontWeight: 600,
-                  color: '#2B1D14',
-                  cursor: 'pointer',
-                  outline: 'none',
-                }}
               >
                 <option value="featured">Featured</option>
                 <option value="new">New Arrivals</option>
