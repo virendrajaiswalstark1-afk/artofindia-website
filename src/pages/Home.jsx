@@ -136,7 +136,7 @@ export default function Home() {
       {/* HERO */}
       <section className="relative overflow-x-clip pt-16 pb-10 bg-gradient-to-b from-[#FDEFD9] via-[#FFF8EE] to-[#FFFCF7]">
         <div className="relative z-10 max-w-[1240px] mx-auto px-8 sm:px-5 text-center">
-          <Eyebrow color="orange" className="!before:content-none  ">A platform for art India almost forgot</Eyebrow>
+          <Eyebrow color="orange" className="eyebrow-highlight">A platform for art India almost forgot</Eyebrow>
           
          
 
