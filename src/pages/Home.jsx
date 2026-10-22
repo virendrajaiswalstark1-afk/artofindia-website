@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
 import Ph from '../components/Ph.jsx';
 import Eyebrow from '../components/Eyebrow.jsx';
+import { useEffect, useRef } from 'react'; 
 
 /* GALLERY MARQUEE */
 const GALLERY_ITEMS = [
   { image: '/images/products/lord_Ganesh/ID1/lord-ganesh-00-3800-12-inc.jpg', name: 'Divine Blessing Relief', cat: 'Lord Ganesh', catKey: 'ganesh' },
   { image: '/images/products/Krishna/ID14/radhakrishna_id-14.jpg',    name: 'Bal Gopal Krishna', cat: 'Lord Krishna', catKey: 'krishna' },
   { image: "/images/products/lord_Ganesh/ID2/lord-ganesh_id-2.jpg",  name: 'Trimukhi Lord Ganesha', cat: 'Lord Ganesh', catKey: 'ganesh' },
-  { image: 'images/products/others/ID20/turtal_id-20.1.jpg',        name: 'Turtal', cat: 'Decorative', catKey: 'decorative' },
+  { image: '/images/products/others/ID20/turtal_id-20.1.jpg',        name: 'Turtal', cat: 'Decorative', catKey: 'decorative' },
   { image: '/images/products/lord_Ganesh/ID12/lord-ganesh_id-12.jpg', name: 'Lord Ganesh', cat: 'Lord Ganesh', catKey: 'ganesh' },
   { image: '/images/products/lord_Ganesh/ID3/lord-ganesh_id-3.jpg',   name: 'Royal Ganesha', cat: 'Lord Ganesh', catKey: 'ganesh' },
   { image: '/images/products/lord_Ganesh/ID5/lord-ganesh_id-5.1.jpg', name: 'Lord Ganesh & Goddess Laxmi', cat: 'Lord Ganesh', catKey: 'ganesh' },
@@ -55,6 +56,77 @@ function GalleryCard({ item, hidden = false }) {
         <span className="font-mono text-[10.5px] uppercase tracking-wide text-ink-faint">{item.cat}</span>
       </div>
     </Link>
+  );
+}
+
+function GalleryMarquee({ items }) {
+  const trackRef = useRef(null);
+  const isDown = useRef(false);
+  const startX = useRef(0);
+  const startScroll = useRef(0);
+  const resumeTimer = useRef(null);
+  const rafId = useRef(null);
+  const paused = useRef(false);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    const step = () => {
+      if (!paused.current) {
+        track.scrollLeft += 0.6;
+        if (track.scrollLeft >= track.scrollWidth / 2) {
+          track.scrollLeft -= track.scrollWidth / 2;
+        }
+      }
+      rafId.current = requestAnimationFrame(step);
+    };
+    rafId.current = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(rafId.current);
+  }, []);
+
+  const pauseThenResume = (delay = 1500) => {
+    paused.current = true;
+    clearTimeout(resumeTimer.current);
+    resumeTimer.current = setTimeout(() => { paused.current = false; }, delay);
+  };
+
+  const onMouseDown = (e) => {
+    isDown.current = true;
+    paused.current = true;
+    startX.current = e.pageX;
+    startScroll.current = trackRef.current.scrollLeft;
+  };
+  const onMouseMove = (e) => {
+    if (!isDown.current) return;
+    const dx = e.pageX - startX.current;
+    trackRef.current.scrollLeft = startScroll.current - dx;
+  };
+  const endDrag = () => {
+    if (!isDown.current) return;
+    isDown.current = false;
+    pauseThenResume();
+  };
+
+  const onTouchStart = () => { paused.current = true; };
+  const onTouchEnd = () => { pauseThenResume(); };
+
+  return (
+    <div
+      ref={trackRef}
+      onMouseDown={onMouseDown}
+      onMouseMove={onMouseMove}
+      onMouseUp={endDrag}
+      onMouseLeave={endDrag}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+      className="gallery-marquee flex gap-[26px] overflow-x-auto cursor-grab active:cursor-grabbing select-none py-2.5 pb-[26px]"
+      style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}
+    >
+      {[...items, ...items].map((item, i) => (
+        <GalleryCard key={i} item={item} hidden={i >= items.length} />
+      ))}
+    </div>
   );
 }
 
@@ -110,16 +182,10 @@ export default function Home() {
           </div>
         </div>
         <div className="gallery-marquee-wrap mt-9">
-          <div className="gallery-marquee overflow-hidden py-2.5 pb-[26px]">
-            <div className="marquee-track flex gap-[26px] w-max">
-              {[...GALLERY_ITEMS, ...GALLERY_ITEMS].map((item, i) => (
-                <GalleryCard key={i} item={item} hidden={i >= GALLERY_ITEMS.length} />
-              ))}
-            </div>
-          </div>
+            <GalleryMarquee items={GALLERY_ITEMS} />
         </div>
         <div className="max-w-[1240px] mx-auto px-8 sm:px-5 mt-5">
-          <p className="text-[12.5px] text-ink-faint font-mono">Hover to pause · tap any piece to shop its category</p>
+          <p className="text-[12.5px] text-ink-faint font-mono">Drag to scroll · tap any piece to shop its category</p>
         </div>
       </section>
 
